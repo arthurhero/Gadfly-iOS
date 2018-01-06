@@ -18,6 +18,8 @@ class AddressViewController: UIViewController, UISearchBarDelegate, LocateOnTheM
     var searchResultController : SearchResultsController!
     var resultsArray = [String]()
     
+    var selectedAddress : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +53,8 @@ class AddressViewController: UIViewController, UISearchBarDelegate, LocateOnTheM
             marker.title = nil
             marker.map = self.googleMapsView
         }
+        
+        selectedAddress = title
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
