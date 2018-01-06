@@ -15,6 +15,14 @@
 		BF4BE4ED20000581007583E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4BE4EB20000581007583E1 /* LaunchScreen.storyboard */; };
 		BF4BE4F820000581007583E1 /* GadflyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BE4F720000581007583E1 /* GadflyTests.swift */; };
 		BF4BE50320000581007583E1 /* GadflyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BE50220000581007583E1 /* GadflyUITests.swift */; };
+		BF4DFA70200060C70005342B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA6F200060C70005342B /* HomeViewController.swift */; };
+		BF4DFA72200060DE0005342B /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA71200060DE0005342B /* AddressViewController.swift */; };
+		BF4DFA74200060E80005342B /* ScriptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA73200060E80005342B /* ScriptViewController.swift */; };
+		BF4DFA76200061020005342B /* UsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA75200061020005342B /* UsViewController.swift */; };
+		BF4DFA78200061260005342B /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA77200061260005342B /* QRViewController.swift */; };
+		BF4DFA7A2000615D0005342B /* SubmittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA792000615D0005342B /* SubmittedViewController.swift */; };
+		BF4DFA7C2000626B0005342B /* RepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA7B2000626B0005342B /* RepTableViewController.swift */; };
+		BF4DFA7E2000627A0005342B /* RepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA7D2000627A0005342B /* RepTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,14 @@
 		BF4BE4FE20000581007583E1 /* GadflyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GadflyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4BE50220000581007583E1 /* GadflyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadflyUITests.swift; sourceTree = "<group>"; };
 		BF4BE50420000581007583E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF4DFA6F200060C70005342B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BF4DFA71200060DE0005342B /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		BF4DFA73200060E80005342B /* ScriptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptViewController.swift; sourceTree = "<group>"; };
+		BF4DFA75200061020005342B /* UsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsViewController.swift; sourceTree = "<group>"; };
+		BF4DFA77200061260005342B /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		BF4DFA792000615D0005342B /* SubmittedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmittedViewController.swift; sourceTree = "<group>"; };
+		BF4DFA7B2000626B0005342B /* RepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepTableViewController.swift; sourceTree = "<group>"; };
+		BF4DFA7D2000627A0005342B /* RepTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +117,16 @@
 			children = (
 				BF4BE4E020000581007583E1 /* AppDelegate.swift */,
 				BF4BE4E220000581007583E1 /* FirstViewController.swift */,
+				BF4DFA71200060DE0005342B /* AddressViewController.swift */,
+				BF4DFA6F200060C70005342B /* HomeViewController.swift */,
+				BF4DFA73200060E80005342B /* ScriptViewController.swift */,
+				BF4DFA7D2000627A0005342B /* RepTableViewCell.swift */,
+				BF4DFA7B2000626B0005342B /* RepTableViewController.swift */,
+				BF4DFA77200061260005342B /* QRViewController.swift */,
+				BF4DFA75200061020005342B /* UsViewController.swift */,
 				BF4BE4E420000581007583E1 /* SecondViewController.swift */,
 				BF4BE4E620000581007583E1 /* Main.storyboard */,
+				BF4DFA792000615D0005342B /* SubmittedViewController.swift */,
 				BF4BE4E920000581007583E1 /* Assets.xcassets */,
 				BF4BE4EB20000581007583E1 /* LaunchScreen.storyboard */,
 				BF4BE4EE20000581007583E1 /* Info.plist */,
@@ -265,9 +289,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4DFA7A2000615D0005342B /* SubmittedViewController.swift in Sources */,
 				BF4BE4E520000581007583E1 /* SecondViewController.swift in Sources */,
 				BF4BE4E120000581007583E1 /* AppDelegate.swift in Sources */,
 				BF4BE4E320000581007583E1 /* FirstViewController.swift in Sources */,
+				BF4DFA78200061260005342B /* QRViewController.swift in Sources */,
+				BF4DFA76200061020005342B /* UsViewController.swift in Sources */,
+				BF4DFA72200060DE0005342B /* AddressViewController.swift in Sources */,
+				BF4DFA7E2000627A0005342B /* RepTableViewCell.swift in Sources */,
+				BF4DFA7C2000626B0005342B /* RepTableViewController.swift in Sources */,
+				BF4DFA70200060C70005342B /* HomeViewController.swift in Sources */,
+				BF4DFA74200060E80005342B /* ScriptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +550,7 @@
 				BF4BE50920000581007583E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF4BE50A20000581007583E1 /* Build configuration list for PBXNativeTarget "GadflyTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +559,7 @@
 				BF4BE50C20000581007583E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF4BE50D20000581007583E1 /* Build configuration list for PBXNativeTarget "GadflyUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +568,7 @@
 				BF4BE50F20000581007583E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
