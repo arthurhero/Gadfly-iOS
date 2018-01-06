@@ -309,7 +309,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DVr-3r-ZZt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="HOME" image="house-7" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKR-F8-gDK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FKR-F8-gDK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -327,7 +327,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KRg-fJ-26E" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JY7-Ic-97L">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JY7-Ic-97L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -345,7 +345,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oXx-Xc-u69" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Mo-O9-bLQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0Mo-O9-bLQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

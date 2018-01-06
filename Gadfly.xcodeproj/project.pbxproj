@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		B5A01DC8E4367A19F9501D04 /* Pods_GadflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199FAA5605829CBB702EEB87 /* Pods_GadflyTests.framework */; };
 		BF4BE4E120000581007583E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BE4E020000581007583E1 /* AppDelegate.swift */; };
-		BF4BE4E320000581007583E1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BE4E220000581007583E1 /* FirstViewController.swift */; };
-		BF4BE4E520000581007583E1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BE4E420000581007583E1 /* SecondViewController.swift */; };
 		BF4BE4E820000581007583E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4BE4E620000581007583E1 /* Main.storyboard */; };
 		BF4BE4EA20000581007583E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4BE4E920000581007583E1 /* Assets.xcassets */; };
 		BF4BE4ED20000581007583E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4BE4EB20000581007583E1 /* LaunchScreen.storyboard */; };
@@ -55,8 +53,6 @@
 		865F2B5938179FB1ECAD64D4 /* Pods-GadflyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF4BE4DD20000581007583E1 /* Gadfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gadfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4BE4E020000581007583E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF4BE4E220000581007583E1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BF4BE4E420000581007583E1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		BF4BE4E720000581007583E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF4BE4E920000581007583E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF4BE4EC20000581007583E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -156,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				BF4BE4E020000581007583E1 /* AppDelegate.swift */,
-				BF4BE4E220000581007583E1 /* FirstViewController.swift */,
 				BF4DFA71200060DE0005342B /* AddressViewController.swift */,
 				BF4DFA6F200060C70005342B /* HomeViewController.swift */,
 				BF4DFA73200060E80005342B /* ScriptViewController.swift */,
@@ -164,7 +159,6 @@
 				BF4DFA7B2000626B0005342B /* RepTableViewController.swift */,
 				BF4DFA77200061260005342B /* QRViewController.swift */,
 				BF4DFA75200061020005342B /* UsViewController.swift */,
-				BF4BE4E420000581007583E1 /* SecondViewController.swift */,
 				BF4BE4E620000581007583E1 /* Main.storyboard */,
 				BF4DFA792000615D0005342B /* SubmittedViewController.swift */,
 				BF4BE4E920000581007583E1 /* Assets.xcassets */,
@@ -490,9 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF4DFA7A2000615D0005342B /* SubmittedViewController.swift in Sources */,
-				BF4BE4E520000581007583E1 /* SecondViewController.swift in Sources */,
 				BF4BE4E120000581007583E1 /* AppDelegate.swift in Sources */,
-				BF4BE4E320000581007583E1 /* FirstViewController.swift in Sources */,
 				BF4DFA78200061260005342B /* QRViewController.swift in Sources */,
 				BF4DFA76200061020005342B /* UsViewController.swift in Sources */,
 				BF4DFA72200060DE0005342B /* AddressViewController.swift in Sources */,
