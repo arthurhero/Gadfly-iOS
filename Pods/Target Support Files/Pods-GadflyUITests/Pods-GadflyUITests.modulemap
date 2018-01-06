@@ -1,0 +1,6 @@
+framework module Pods_GadflyUITests {
+  umbrella header "Pods-GadflyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
