@@ -22,6 +22,7 @@
 		BF4DFA7A2000615D0005342B /* SubmittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA792000615D0005342B /* SubmittedViewController.swift */; };
 		BF4DFA7C2000626B0005342B /* RepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA7B2000626B0005342B /* RepTableViewController.swift */; };
 		BF4DFA7E2000627A0005342B /* RepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA7D2000627A0005342B /* RepTableViewCell.swift */; };
+		BF4DFA80200067FA0005342B /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA7F200067FA0005342B /* SearchResultsController.swift */; };
 		F74B7081744F8DB41832DFED /* Pods_GadflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9554FCF3CCB320D98AA7C2B /* Pods_GadflyUITests.framework */; };
 		FF506FE36D2A301787616644 /* Pods_Gadfly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA20D7327DCA9F7BD4121B2 /* Pods_Gadfly.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		BF4DFA792000615D0005342B /* SubmittedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmittedViewController.swift; sourceTree = "<group>"; };
 		BF4DFA7B2000626B0005342B /* RepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepTableViewController.swift; sourceTree = "<group>"; };
 		BF4DFA7D2000627A0005342B /* RepTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepTableViewCell.swift; sourceTree = "<group>"; };
+		BF4DFA7F200067FA0005342B /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		E30DF7163D47E58FDCFB12AA /* Pods-GadflyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9554FCF3CCB320D98AA7C2B /* Pods_GadflyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GadflyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4BE4E020000581007583E1 /* AppDelegate.swift */,
+				BF4DFA7F200067FA0005342B /* SearchResultsController.swift */,
 				BF4DFA71200060DE0005342B /* AddressViewController.swift */,
 				BF4DFA6F200060C70005342B /* HomeViewController.swift */,
 				BF4DFA73200060E80005342B /* ScriptViewController.swift */,
@@ -491,6 +494,7 @@
 				BF4DFA7E2000627A0005342B /* RepTableViewCell.swift in Sources */,
 				BF4DFA7C2000626B0005342B /* RepTableViewController.swift in Sources */,
 				BF4DFA70200060C70005342B /* HomeViewController.swift in Sources */,
+				BF4DFA80200067FA0005342B /* SearchResultsController.swift in Sources */,
 				BF4DFA74200060E80005342B /* ScriptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
