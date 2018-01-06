@@ -25,7 +25,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zF8-gn-dKq">
                                 <rect key="frame" x="130" y="222" width="114" height="87"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="tR5-g1-RNF"/>
+                                    <constraint firstAttribute="height" constant="87" id="IvR-v1-DfC"/>
+                                    <constraint firstAttribute="width" constant="114" id="J0K-pU-iET"/>
                                 </constraints>
                                 <state key="normal" image="icons8-find-user-male-filled-50"/>
                                 <connections>
@@ -38,14 +39,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rp4-Zi-snc">
+                                <rect key="frame" x="89" y="434" width="196" height="30"/>
+                                <state key="normal" title="USE REPS FROM LAST TIME"/>
+                                <connections>
+                                    <segue destination="F6A-l7-A0e" kind="show" id="qIB-6Y-5pC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nze-ZY-gkg" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="238" id="80h-U7-mS5"/>
-                            <constraint firstItem="zF8-gn-dKq" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="158" id="OLn-Uz-Y3c"/>
-                            <constraint firstItem="zF8-gn-dKq" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="QU3-Qu-ALc"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="zF8-gn-dKq" secondAttribute="bottom" constant="309" id="SGE-jO-56y"/>
-                            <constraint firstItem="zF8-gn-dKq" firstAttribute="centerX" secondItem="nze-ZY-gkg" secondAttribute="centerX" id="tkn-RQ-baE"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="rp4-Zi-snc" secondAttribute="bottom" constant="154" id="4ng-fQ-xLm"/>
+                            <constraint firstItem="zF8-gn-dKq" firstAttribute="centerX" secondItem="nze-ZY-gkg" secondAttribute="centerX" id="7h1-4h-4Pi"/>
+                            <constraint firstItem="zF8-gn-dKq" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="aAI-Zp-ECR"/>
+                            <constraint firstItem="zF8-gn-dKq" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="158" id="ooH-Fv-sUp"/>
+                            <constraint firstItem="nze-ZY-gkg" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="238" id="un0-QK-Kao"/>
+                            <constraint firstItem="nze-ZY-gkg" firstAttribute="centerX" secondItem="rp4-Zi-snc" secondAttribute="centerX" id="vaA-i3-CCF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HOME" id="LKa-ZJ-U7p">
@@ -80,6 +89,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4p-jb-frm">
                                 <rect key="frame" x="162" y="530" width="50" height="50"/>
                                 <state key="normal" image="icons8-checked-filled-50"/>
+                                <connections>
+                                    <segue destination="F6A-l7-A0e" kind="show" id="kaL-BI-7QX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comfirm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTT-xZ-jxX">
                                 <rect key="frame" x="154" y="588" width="67" height="21"/>
@@ -340,24 +352,6 @@
             </objects>
             <point key="canvasLocation" x="2672.8000000000002" y="-600.44977511244383"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3iM-QO-SCI">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oXx-Xc-u69" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0Mo-O9-bLQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="F6A-l7-A0e" kind="relationship" relationship="rootViewController" id="g7l-6G-X9d"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PlH-ws-6eV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1730.4000000000001" y="-1624.1379310344828"/>
-        </scene>
     </scenes>
     <resources>
         <image name="heart-7" width="30" height="30"/>
@@ -367,4 +361,7 @@
         <image name="icons8-qr-code-50" width="50" height="50"/>
         <image name="write-simple-7" width="29" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kaL-BI-7QX"/>
+    </inferredMetricsTieBreakers>
 </document>
