@@ -113,8 +113,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ENTER ADDRESS" id="B1V-gQ-vXd">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="c0d-fB-gXo"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="c0d-fB-gXo">
+                            <connections>
+                                <action selector="searchWithAddress:" destination="GwN-4g-d4o" id="EPH-Y9-A2G"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapContainer" destination="Pm7-YN-Dqr" id="dLi-ly-YmI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zW4-ad-jAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
