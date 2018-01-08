@@ -27,6 +27,7 @@
 		BF4DFA9E2001306C0005342B /* GFScript.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFA9D2001306B0005342B /* GFScript.m */; };
 		BF4DFAA12001307C0005342B /* GFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFAA02001307C0005342B /* GFUser.m */; };
 		BF4DFAA42001308C0005342B /* GFTag.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFAA32001308C0005342B /* GFTag.m */; };
+		BF4DFAA62003F8C50005342B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFAA52003F8C50005342B /* SplitViewController.swift */; };
 		F74B7081744F8DB41832DFED /* Pods_GadflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9554FCF3CCB320D98AA7C2B /* Pods_GadflyUITests.framework */; };
 		FF506FE36D2A301787616644 /* Pods_Gadfly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA20D7327DCA9F7BD4121B2 /* Pods_Gadfly.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		BF4DFAA02001307C0005342B /* GFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFUser.m; sourceTree = "<group>"; };
 		BF4DFAA22001308C0005342B /* GFTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTag.h; sourceTree = "<group>"; };
 		BF4DFAA32001308C0005342B /* GFTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTag.m; sourceTree = "<group>"; };
+		BF4DFAA52003F8C50005342B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		E30DF7163D47E58FDCFB12AA /* Pods-GadflyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9554FCF3CCB320D98AA7C2B /* Pods_GadflyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GadflyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4BE4E020000581007583E1 /* AppDelegate.swift */,
+				BF4DFAA52003F8C50005342B /* SplitViewController.swift */,
 				BF4DFA7F200067FA0005342B /* SearchResultsController.swift */,
 				BF4DFA71200060DE0005342B /* AddressViewController.swift */,
 				BF4DFA6F200060C70005342B /* HomeViewController.swift */,
@@ -175,10 +178,10 @@
 				BF4DFA7B2000626B0005342B /* RepTableViewController.swift */,
 				BF4DFA77200061260005342B /* QRViewController.swift */,
 				BF4DFA75200061020005342B /* UsViewController.swift */,
-				BF4BE4E620000581007583E1 /* Main.storyboard */,
 				BF4DFA792000615D0005342B /* SubmittedViewController.swift */,
 				BF4DFA97200130030005342B /* Classes */,
 				BF4BE4E920000581007583E1 /* Assets.xcassets */,
+				BF4BE4E620000581007583E1 /* Main.storyboard */,
 				BF4BE4EB20000581007583E1 /* LaunchScreen.storyboard */,
 				BF4BE4EE20000581007583E1 /* Info.plist */,
 			);
@@ -522,6 +525,7 @@
 				BF4BE4E120000581007583E1 /* AppDelegate.swift in Sources */,
 				BF4DFA78200061260005342B /* QRViewController.swift in Sources */,
 				BF4DFA76200061020005342B /* UsViewController.swift in Sources */,
+				BF4DFAA62003F8C50005342B /* SplitViewController.swift in Sources */,
 				BF4DFAA42001308C0005342B /* GFTag.m in Sources */,
 				BF4DFA72200060DE0005342B /* AddressViewController.swift in Sources */,
 				BF4DFA7E2000627A0005342B /* RepTableViewCell.swift in Sources */,

@@ -1,18 +1,14 @@
 //
-//  SubmittedViewController.swift
+//  SplitViewController.swift
 //  Gadfly
 //
-//  Created by Ziwen Chen on 1/5/18.
+//  Created by Ziwen Chen on 1/8/18.
 //  Copyright © 2018 G-FORVM. All rights reserved.
 //
 
 import UIKit
 
-class SubmittedViewController: UIViewController {
-    
-    @IBAction func OkButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+class SplitViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

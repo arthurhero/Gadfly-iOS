@@ -20,6 +20,13 @@ class AddressViewController: UIViewController, UISearchBarDelegate, LocateOnTheM
     
     var selectedAddress : String = ""
     
+    @IBAction func ConfirmButtonTapped(_ sender: Any) {
+        if selectedAddress != "" {
+            UserDefaults.standard.set(selectedAddress, forKey: "address")
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
