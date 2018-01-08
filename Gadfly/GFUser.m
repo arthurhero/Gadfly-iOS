@@ -13,6 +13,7 @@ static NSArray *user_polis;
 
 @implementation GFUser
 
+/*
 - (GFUser *)init {
     GFUser *user=[GFUser new];
     self.initialized=true;
@@ -22,6 +23,7 @@ static NSArray *user_polis;
 - (void)reset {
     self.initialized=false;
 }
+ */
 
 + (void)cacheAddress:(NSString *)address {
     user_address=address;

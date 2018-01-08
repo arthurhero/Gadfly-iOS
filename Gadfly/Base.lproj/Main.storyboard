@@ -99,6 +99,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAu-g4-caT">
+                                <rect key="frame" x="163" y="617" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="CancelButtonTapped:" destination="GwN-4g-d4o" eventType="touchUpInside" id="UJf-1Q-442"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -121,9 +129,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapContainer" destination="Pm7-YN-Dqr" id="dLi-ly-YmI"/>
+                        <segue destination="xvx-Sp-UHe" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="Y6m-Pq-mCT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zW4-ad-jAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xvx-Sp-UHe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3612" y="-600.44977511244383"/>
         </scene>
@@ -393,7 +403,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DVr-3r-ZZt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="HOME" image="house-7" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FKR-F8-gDK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKR-F8-gDK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -411,7 +421,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KRg-fJ-26E" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JY7-Ic-97L">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JY7-Ic-97L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -429,7 +439,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4VU-Va-Ny2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n2C-7o-DZL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n2C-7o-DZL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

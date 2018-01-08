@@ -20,10 +20,15 @@ class AddressViewController: UIViewController, UISearchBarDelegate, LocateOnTheM
     
     var selectedAddress : String = ""
     
+    @IBAction func CancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func ConfirmButtonTapped(_ sender: Any) {
         if selectedAddress != "" {
             UserDefaults.standard.set(selectedAddress, forKey: "address")
-            dismiss(animated: true, completion: nil)
+            GFUser.cacheAddress(selectedAddress)
+            performSegue(withIdentifier: "unwindToHome", sender: self)
         }
     }
     

@@ -15,8 +15,8 @@
 
 @property bool initialized;
 
-- (GFUser *)init;
-- (void)reset;
+//- (GFUser *)init;
+//- (void)reset;
 + (void)cacheAddress:(NSString *)address;
 + (NSString *)getAddress;
 + (void)cachePolis:(NSArray *)polis;
