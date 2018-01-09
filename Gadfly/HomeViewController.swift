@@ -10,12 +10,49 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var readyToPresentReps : Bool = false
-
+    var readyForRep : Bool = false
+    
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var centerLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        GFTag.initTags()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if readyForRep {
+            searchButton.isEnabled = false
+            centerLabel.text = "Loading... Please be patient..."
+            let address = GFUser.getAddress()
+            
+            GFPoli.fetch(withAddress: address, completionHandler: { (result : [Any]?) in
+                if (result?.count)! < 2 {
+                    let error : String = result![0] as! String
+                    print(error)
+                    let alert : UIAlertController = UIAlertController(title: "FAIL",
+                                                                       message: "Failed at fetching reps. Please check your internet connection or try with another address.", preferredStyle: UIAlertControllerStyle.alert)
+                    let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+                        self.centerLabel.text = "GET YOUR REPS!"
+                        self.searchButton.isEnabled = true
+                        self.readyForRep = false
+                    })
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    let polis : [GFPoli] = result as! [GFPoli]
+                    GFUser.cachePolis(polis)
+                    self.centerLabel.text = "GET YOUR REPS!"
+                    self.searchButton.isEnabled = true
+                    self.readyForRep = false
+                    self.performSegue(withIdentifier: "showRepTableView", sender: self)
+                }
+            })
+
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,14 +66,14 @@ class HomeViewController: UIViewController {
      
     @IBAction func unwindToHome(segue:UIStoryboardSegue) {
         if segue.identifier == "unwindToHome" {
-            print("UNWINDEDDDDDDDD")
+            readyForRep = true
         }
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showRepTableView" {
+        }
     }
  
 

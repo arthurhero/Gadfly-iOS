@@ -9,6 +9,13 @@
 import UIKit
 
 class RepTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
+    @IBOutlet weak var partyLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

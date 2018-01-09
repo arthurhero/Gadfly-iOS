@@ -2,8 +2,7 @@
 
 static const NSString *URL = @"http://gadfly.mobi/services/v1/representatives";
 static const NSString *APIKey = @"v1key";
-const NSTimeInterval timeoutInterval = 60.0;
-BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid error
+static const NSTimeInterval timeoutInterval = 60.0;
 
 @implementation GFPoli
 
@@ -32,6 +31,7 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
 // @brief Method to call GET representatives API method
 + (void)fetchPoliWithAddress:(NSString *)address
            completionHandler:(void(^_Nonnull)(NSArray *))completion {
+    address = [address stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
     NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
     [queryItems addObject:[NSURLQueryItem queryItemWithName:@"address" value:address]];
@@ -42,13 +42,19 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:poliURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeoutInterval];
     [req setHTTPMethod:@"GET"];
+    [req setValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
     [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
     
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) { NSLog(@"Fetch State Unseccessful!");
-            return; }
-        if (!(response)){ NSLog(@"No Response!");
-            return; }
+        if (error) {
+            NSLog(@"%@", poliURL.absoluteString);
+            NSLog(@"Fetch State Unseccessful!");
+            return;
+        }
+        if (!(response)){
+            NSLog(@"No Response!");
+            return;
+        }
         NSMutableArray <GFPoli*> *polis=[NSMutableArray<GFPoli*> new];
         NSError *JSONParsingError;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
@@ -56,13 +62,17 @@ BOOL callAgain = YES; // to handle bug where we need to submit twice to avoid er
         if (![status isEqualToString:@"OK"]){ NSLog(@"Error!");
             NSMutableArray *error=[NSMutableArray new];
             [error addObject:status];
-            completion(error); }
+            completion(error);
+            return;
+        }
         else { NSMutableArray *arr=[result valueForKey:@"Results"];
             for (NSDictionary *entry in arr){
                 GFPoli *poli = [[GFPoli alloc] initWithDictionary:entry];
+                //[poli printInfo];
                 [polis addObject:poli];
             }
             completion(polis);
+            return;
         }
     }];
     [task resume];

@@ -13,6 +13,7 @@ class RepTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,23 +30,42 @@ class RepTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return GFUser.getPolis().count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "repCell", for: indexPath) as! RepTableViewCell
+        let rep = GFUser.getPolis()[indexPath.row] as! GFPoli
 
-        // Configure the cell...
+        let imageURL = URL(string: rep.picURL!)
+        if imageURL != nil {
+            let image_data = try? Data(contentsOf: imageURL!)
+            cell.photoImageView.image = UIImage(data: image_data!)
+        }
+        
+        var tagString = ""
+        let tagDict = GFTag.getTags() as! [String : String]
+        for tag in rep.tags {
+            let t = String(describing: tag)
+            tagString.append(tagDict[t]!)
+            tagString.append(" ")
+        }
+        cell.tagsLabel.text = tagString.capitalized
+        
+        cell.nameLabel.text = rep.name
+        cell.phoneLabel.text = rep.phone
+        cell.partyLabel.text = rep.party
 
         return cell
+        
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
