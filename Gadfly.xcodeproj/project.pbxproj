@@ -29,6 +29,8 @@
 		BF4DFAA42001308C0005342B /* GFTag.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFAA32001308C0005342B /* GFTag.m */; };
 		BF4DFAA62003F8C50005342B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFAA52003F8C50005342B /* SplitViewController.swift */; };
 		BF4DFAAA2005674F0005342B /* SmallRepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFAA92005674F0005342B /* SmallRepTableViewCell.swift */; };
+		BF4DFAAC200571D20005342B /* ScriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFAAB200571D20005342B /* ScriptTableViewCell.swift */; };
+		BF4DFAAE200572000005342B /* ScriptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4DFAAD200572000005342B /* ScriptTableViewController.swift */; };
 		F74B7081744F8DB41832DFED /* Pods_GadflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9554FCF3CCB320D98AA7C2B /* Pods_GadflyUITests.framework */; };
 		FF506FE36D2A301787616644 /* Pods_Gadfly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA20D7327DCA9F7BD4121B2 /* Pods_Gadfly.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +92,8 @@
 		BF4DFAA32001308C0005342B /* GFTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTag.m; sourceTree = "<group>"; };
 		BF4DFAA52003F8C50005342B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		BF4DFAA92005674F0005342B /* SmallRepTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallRepTableViewCell.swift; sourceTree = "<group>"; };
+		BF4DFAAB200571D20005342B /* ScriptTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptTableViewCell.swift; sourceTree = "<group>"; };
+		BF4DFAAD200572000005342B /* ScriptTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptTableViewController.swift; sourceTree = "<group>"; };
 		E30DF7163D47E58FDCFB12AA /* Pods-GadflyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9554FCF3CCB320D98AA7C2B /* Pods_GadflyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GadflyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,6 +186,8 @@
 				BF4DFA77200061260005342B /* QRViewController.swift */,
 				BF4DFA75200061020005342B /* UsViewController.swift */,
 				BF4DFA792000615D0005342B /* SubmittedViewController.swift */,
+				BF4DFAAB200571D20005342B /* ScriptTableViewCell.swift */,
+				BF4DFAAD200572000005342B /* ScriptTableViewController.swift */,
 				BF4DFA97200130030005342B /* Classes */,
 				BF4BE4E920000581007583E1 /* Assets.xcassets */,
 				BF4BE4E620000581007583E1 /* Main.storyboard */,
@@ -531,11 +537,13 @@
 				BF4DFAA62003F8C50005342B /* SplitViewController.swift in Sources */,
 				BF4DFAA42001308C0005342B /* GFTag.m in Sources */,
 				BF4DFA72200060DE0005342B /* AddressViewController.swift in Sources */,
+				BF4DFAAC200571D20005342B /* ScriptTableViewCell.swift in Sources */,
 				BF4DFA7E2000627A0005342B /* RepTableViewCell.swift in Sources */,
 				BF4DFAAA2005674F0005342B /* SmallRepTableViewCell.swift in Sources */,
 				BF4DFA7C2000626B0005342B /* RepTableViewController.swift in Sources */,
 				BF4DFA70200060C70005342B /* HomeViewController.swift in Sources */,
 				BF4DFAA12001307C0005342B /* GFUser.m in Sources */,
+				BF4DFAAE200572000005342B /* ScriptTableViewController.swift in Sources */,
 				BF4DFA80200067FA0005342B /* SearchResultsController.swift in Sources */,
 				BF4DFA74200060E80005342B /* ScriptViewController.swift in Sources */,
 				BF4DFA9E2001306C0005342B /* GFScript.m in Sources */,
