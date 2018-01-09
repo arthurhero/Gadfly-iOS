@@ -17,6 +17,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lowerButton: UIButton!
     @IBOutlet weak var cleanButton: UIButton!
     
+    
+    @IBAction func testButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "showSplitView", sender: self)
+    }
+    
     func enterLoadingMode() {
         searchButton.isEnabled = false
         lowerButton.isEnabled = false

@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "GFPoli.h"
-#import "GFScript.h"
 #import "GFTag.h"
+@class GFScript;
 
 @interface GFUser : NSObject
 
@@ -18,5 +18,7 @@
 + (NSString *)getAddress;
 + (void)cachePolis:(NSArray *)polis;
 + (NSArray *)getPolis;
++ (void)addScript:(GFScript *)script;
++ (NSArray *)getScripts;
 
 @end

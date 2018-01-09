@@ -10,12 +10,14 @@
 
 static NSString *user_address;
 static NSArray *user_polis;
+static NSMutableArray *user_scripts;
 
 @implementation GFUser
 
 + (void)reset {
     user_address = nil;
     user_polis = nil;
+    user_scripts = nil;
 }
 
 
@@ -33,6 +35,19 @@ static NSArray *user_polis;
 
 + (NSArray *)getPolis {
     return user_polis;
+}
+
++ (void)addScript:(GFScript *)script {
+    if (user_scripts == nil) {
+        user_scripts = [NSMutableArray new];
+        [user_scripts addObject:script];
+    } else {
+        [user_scripts addObject:script];
+    }
+}
+
++ (NSArray *)getScripts {
+    return user_scripts;
 }
 
 @end
