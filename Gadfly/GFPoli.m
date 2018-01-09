@@ -59,7 +59,7 @@ static const NSTimeInterval timeoutInterval = 60.0;
         NSError *JSONParsingError;
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
         NSString *status=[result valueForKey:@"Status"];
-        if (![status isEqualToString:@"OK"]){ NSLog(@"Error!");
+        if (![status isEqualToString:@"OK"]){ NSLog(@"STATUS!!!!!!%@", status);
             NSMutableArray *error=[NSMutableArray new];
             [error addObject:status];
             completion(error);

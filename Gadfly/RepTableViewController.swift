@@ -46,7 +46,9 @@ class RepTableViewController: UITableViewController {
         let imageURL = URL(string: rep.picURL!)
         if imageURL != nil {
             let image_data = try? Data(contentsOf: imageURL!)
-            cell.photoImageView.image = UIImage(data: image_data!)
+            if image_data != nil {
+                cell.photoImageView.image = UIImage(data: image_data!)
+            }
         }
         
         var tagString = ""

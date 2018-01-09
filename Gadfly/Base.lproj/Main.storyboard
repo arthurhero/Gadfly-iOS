@@ -42,6 +42,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rp4-Zi-snc">
                                 <rect key="frame" x="89" y="434" width="196" height="30"/>
                                 <state key="normal" title="USE REPS FROM LAST TIME"/>
+                                <connections>
+                                    <action selector="lowerButtonIsTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="47t-uE-nM0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,6 +67,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="centerLabel" destination="nze-ZY-gkg" id="L7n-Kz-8Bw"/>
+                        <outlet property="lowerButton" destination="rp4-Zi-snc" id="3jL-Fr-MEU"/>
                         <outlet property="searchButton" destination="zF8-gn-dKq" id="Z4d-oQ-d1n"/>
                         <segue destination="F6A-l7-A0e" kind="show" identifier="showRepTableView" id="3I5-5L-0Tf"/>
                     </connections>
@@ -465,7 +469,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DVr-3r-ZZt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="HOME" image="house-7" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKR-F8-gDK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FKR-F8-gDK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -483,7 +487,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KRg-fJ-26E" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JY7-Ic-97L">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JY7-Ic-97L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -501,7 +505,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4VU-Va-Ny2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n2C-7o-DZL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n2C-7o-DZL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
