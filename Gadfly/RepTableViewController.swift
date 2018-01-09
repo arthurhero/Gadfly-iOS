@@ -66,6 +66,20 @@ class RepTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let rep = GFUser.getPolis()[indexPath.row] as! GFPoli
+
+        if (rep.phone != nil) {
+            let phoneString = "telprompt://" + rep.phone!
+            UIApplication.shared.open((URL(string: phoneString))!, options: [:], completionHandler: nil)
+        } else {
+            let alert : UIAlertController = UIAlertController(title: "No phone number",
+                                                              message: "This representative does not have a phone number in our database.", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in })
+            alert.addAction(defaultAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
