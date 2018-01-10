@@ -9,6 +9,7 @@
 #import "GFScript.h"
 
 static NSString *idFromQRCode;
+static GFScript *tempScript;
 
 static const NSString *idURL = @"http://gadfly.mobi/services/v1/id";
 static const NSString *scriptURL = @"http://gadfly.mobi/services/v1/script";
@@ -23,6 +24,14 @@ static const NSTimeInterval timeoutInterval = 60.0;
 
 + (NSString *)getID {
     return idFromQRCode;
+}
+
++ (void)cacheScript:(GFScript *)script {
+    tempScript = script;
+}
+
++ (GFScript *)getScript {
+    return tempScript;
 }
 
 - (GFScript *)initWithDictionary:(NSDictionary *)dict {
@@ -109,7 +118,6 @@ static const NSTimeInterval timeoutInterval = 60.0;
             NSDictionary *scriptData=[NSDictionary new];
             scriptData=[result valueForKey:@"Script"];
             GFScript *script=[[GFScript alloc]initWithDictionary:scriptData];
-            NSLog(@"%@",script.content);
             completion(script);
         }
     }];

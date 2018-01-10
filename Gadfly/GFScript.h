@@ -21,6 +21,10 @@
 
 + (NSString *)getID;
 
++ (void)cacheScript:(GFScript *)script;
+
++ (GFScript *)getScript;
+
 - (GFScript *)initWithDictionary:(NSDictionary *)dict;
 
 /*!

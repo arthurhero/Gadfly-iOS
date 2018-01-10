@@ -10,6 +10,11 @@ import UIKit
 
 class QRViewController: UIViewController {
     
+    @IBAction func idButtonTapped(_ sender: Any) {
+        GFScript.cacheID("2");
+        performSegue(withIdentifier: "unwindToHome2", sender: self)
+    }
+    
     @IBAction func CancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

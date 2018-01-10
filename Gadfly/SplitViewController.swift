@@ -12,6 +12,7 @@ class SplitViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var applyLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var repTableView: UITableView!
     
@@ -25,6 +26,20 @@ class SplitViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         repTableView.delegate = self
         repTableView.dataSource = self
+
+        
+        let script = GFScript.getScript()
+        titleLabel.text = script?.title
+        contentTextView.text = script?.content
+        
+        var tagString = "Applies To: "
+        let tagDict = GFTag.getTags() as! [String : String]
+        for tag in (script?.tags)! {
+            let t = String(describing: tag)
+            tagString.append(tagDict[t]!.capitalized)
+            tagString.append(" ")
+        }
+        applyLabel.text = tagString
 
         // Do any additional setup after loading the view.
     }

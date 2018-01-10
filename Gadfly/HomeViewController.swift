@@ -11,16 +11,12 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var readyForRep : Bool = false
+    var readyForScript : Bool = false
     
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var centerLabel: UILabel!
     @IBOutlet weak var lowerButton: UIButton!
     @IBOutlet weak var cleanButton: UIButton!
-    
-    
-    @IBAction func testButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "showSplitView", sender: self)
-    }
     
     func enterLoadingMode() {
         searchButton.isEnabled = false
@@ -56,7 +52,7 @@ class HomeViewController: UIViewController {
                     let error : String = result![0] as! String
                     print(error)
                     let alert : UIAlertController = UIAlertController(title: "FAIL",
-                                                                       message: "Failed at fetching reps. Please check your internet connection, try with another address nearby or try with a slightly more numerical address.", preferredStyle: UIAlertControllerStyle.alert)
+                                                                       message: "Failed at fetching reps. Please check your internet connection, try with another address nearby or try with a slightly more numerical address.\n\nServer: "+error, preferredStyle: UIAlertControllerStyle.alert)
                     let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
                         self.enterNormalMode()
                         self.readyForRep = false
@@ -71,6 +67,30 @@ class HomeViewController: UIViewController {
                 }
             })
 
+        } else if readyForScript {
+            enterLoadingMode()
+            let ID = GFScript.getID()
+            
+            GFScript.fetch(withID: ID, completionHandler: { (script) in
+                if (script?.content == "") {
+                    let error : String = (script?.title)!
+                    let alert : UIAlertController = UIAlertController(title: "FAIL",
+                                                                      message: error, preferredStyle: UIAlertControllerStyle.alert)
+                    let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+                        self.enterNormalMode()
+                        self.readyForScript = false
+                    })
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    GFScript.cacheScript(script)
+                    self.readyForScript = false
+                    DispatchQueue.main.sync {
+                        self.performSegue(withIdentifier: "showSplitView", sender: self)
+                    }
+                }
+            })
+            
         } else {
             enterNormalMode()
         }
@@ -128,6 +148,12 @@ class HomeViewController: UIViewController {
     @IBAction func unwindToHome(segue:UIStoryboardSegue) {
         if segue.identifier == "unwindToHome" {
             readyForRep = true
+        }
+    }
+    
+    @IBAction func unwindToHome2(segue:UIStoryboardSegue) {
+        if segue.identifier == "unwindToHome2" {
+            readyForScript = true
         }
     }
 
