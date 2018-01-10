@@ -9,9 +9,15 @@
 import UIKit
 
 class ScriptViewController: UIViewController {
+    
+    @IBOutlet weak var contentTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        contentTextView.layer.borderWidth = 1.0
+        contentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        contentTextView.layer.cornerRadius = 5.0
 
         // Do any additional setup after loading the view.
     }
