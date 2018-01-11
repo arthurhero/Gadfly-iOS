@@ -41,5 +41,11 @@
 + (void)fetchScriptWithID:(NSString *)ID
         completionHandler:(void(^_Nonnull)(GFScript *))completion;
 
+/*!
+ @discussion No matter success or failure, this method directly returns the dictionary returned by
+ the API. See Web-Server Wiki on Github.
+ */
++ (void)submitScriptWithDictionary:(NSDictionary *)dict
+         completionHandler:(void(^_Nonnull)(NSDictionary *))completion;
 
 @end

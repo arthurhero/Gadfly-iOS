@@ -10,12 +10,20 @@ import UIKit
 
 class SubmittedViewController: UIViewController {
     
+    var ticket : String = ""
+    
+    @IBOutlet weak var QRImageView: UIImageView!
+    @IBOutlet weak var ticketLabel: UILabel!
+    
+    
     @IBAction func OkButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ticketLabel.text = ticket
 
         // Do any additional setup after loading the view.
     }

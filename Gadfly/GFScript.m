@@ -124,6 +124,40 @@ static const NSTimeInterval timeoutInterval = 60.0;
     [task resume];
 }
 
++ (void)submitScriptWithDictionary:(NSDictionary *)dict
+                 completionHandler:(void(^_Nonnull)(NSDictionary *))completion {
+    NSURL *URL = [NSURL URLWithString:scriptURL];
+    NSString *post = [NSString stringWithFormat:@"title=%@&content=%@&tags=%@&tags=%@",[dict valueForKey:@"title"],[dict valueForKey:@"content"],[dict valueForKey:@"tag1"],[dict valueForKey:@"tag2"]];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+    [req setURL: URL];
+    [req setHTTPMethod:@"POST"];
+    [req setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [req setHTTPBody:postData];
+    [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
+
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Fetch ID Unseccessful!");
+            return;
+        }
+        if (!(response)){
+            NSLog(@"No Response!");
+            return;
+        }
+        NSLog(@"Successful!");
+        NSDictionary *result=[NSDictionary new];
+        NSError *JSONParsingError;
+        result=[NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+        completion(result);
+    }];
+    
+    [task resume];
+
+}
+
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.title forKey:@"title"];
     [encoder encodeObject:self.content forKey:@"content"];

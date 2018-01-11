@@ -8,9 +8,17 @@
 
 import UIKit
 
-class ScriptViewController: UIViewController {
+class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var tagPickerView: UIPickerView!
+    
+    let pickerDataSource = [["Federal","State"],["Senator","Representative"]]
+    var tagsSelected = ["1","3"]
+    
+    var ticket : String = ""
+    var ID : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +26,53 @@ class ScriptViewController: UIViewController {
         contentTextView.layer.borderWidth = 1.0
         contentTextView.layer.borderColor = UIColor.lightGray.cgColor
         contentTextView.layer.cornerRadius = 5.0
+        
+        tagPickerView.delegate = self
+        tagPickerView.dataSource = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func clearButtonTapped(_ sender: Any) {
+        titleTextField.text = ""
+        contentTextView.text = ""
+    }
+    
+    @IBAction func submitButtonTapped(_ sender: Any) {
+        if (titleTextField.text! != "" && contentTextView.text! != "") {
+            let dict = ["title":titleTextField.text!,"content":contentTextView.text!,"tag1":tagsSelected[0],"tag2":tagsSelected[1]]
+            
+            GFScript.submitScript(with: dict, completionHandler: { (result) in
+                let status : String = result?["Status"] as! String
+                if (status != "OK") {
+                    let alert : UIAlertController = UIAlertController(title: "FAIL",
+                                                                      message: "Upload failed for some reason.\n\nServer: " + status, preferredStyle: UIAlertControllerStyle.alert)
+                    let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in })
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else {
+                    var script : GFScript! = GFScript()
+                    script.title = dict["title"]
+                    script.content =  dict["content"]
+                    script.tags = self.tagsSelected as! NSMutableArray
+                    GFUser.add(script)
+                    self.ticket = result?["ticket"] as! String
+                    print(self.ticket)
+                    self.ID = String(format: "%@", result?["id"] as! NSNumber)
+                    print(self.ID)
+                    DispatchQueue.main.sync {
+                        self.performSegue(withIdentifier: "showSubmittedView", sender: self)
+                    }
+                }
+            })
+        } else {
+            let alert : UIAlertController = UIAlertController(title: "ERROR",
+                                                              message: "Please fill in both the title part and the content part", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in })
+            alert.addAction(defaultAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,15 +80,53 @@ class ScriptViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Picker view data source
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 2
+    }
 
-    /*
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerDataSource[component][row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "System Font Regular", size: 17.0)
+            pickerLabel?.textAlignment = .center
+        }
+        pickerLabel?.text = pickerDataSource[component][row]
+        return pickerLabel!
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if (component == 0 && row == 0) {
+            tagsSelected[0] = "1"
+        } else if (component == 0 && row == 1) {
+            tagsSelected[0] = "2"
+        } else if (component == 1 && row == 0) {
+            tagsSelected[1] = "3"
+        } else {
+            tagsSelected[1] = "4"
+        }
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showSubmittedView" {
+            let destinationVC = segue.destination as! SubmittedViewController
+            destinationVC.ticket = self.ticket
+        }
     }
-    */
+    
 
 }
