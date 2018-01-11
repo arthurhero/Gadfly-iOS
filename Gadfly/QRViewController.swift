@@ -11,7 +11,7 @@ import UIKit
 class QRViewController: UIViewController {
     
     @IBAction func idButtonTapped(_ sender: Any) {
-        GFScript.cacheID("2");
+        GFScript.cacheID("4");
         performSegue(withIdentifier: "unwindToHome2", sender: self)
     }
     

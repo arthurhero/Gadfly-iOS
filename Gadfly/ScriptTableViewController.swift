@@ -9,7 +9,11 @@
 import UIKit
 
 class ScriptTableViewController: UITableViewController {
+    
+    var deleteMode : Bool = false
 
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,48 +28,84 @@ class ScriptTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        if deleteMode {
+            (sender as! UIBarButtonItem).title = "Edit"
+            deleteMode = false
+        } else {
+            (sender as! UIBarButtonItem).title = "Done"
+            deleteMode = true
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if GFUser.getScripts() != nil {
+            return GFUser.getScripts().count
+        } else {
+            return 1
+        }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scriptCell", for: indexPath) as! ScriptTableViewCell
+        
+        if GFUser.getScripts() != nil {
+            let script = GFUser.getScripts()[indexPath.row] as! GFScript
+            cell.titleLabel.text = script.title
+            cell.contentTextField.text = script.content
+            cell.contentTextField.isEditable = false
+            cell.contentTextField.isScrollEnabled = false
+            cell.contentTextField.isSelectable = false
+            cell.contentTextField.isUserInteractionEnabled = false
+            return cell
+        } else {
+            cell.titleLabel.text = "No scripts stored."
+            cell.contentTextField.text = ""
+            cell.contentTextField.isEditable = false
+            cell.contentTextField.isScrollEnabled = false
+            cell.contentTextField.isSelectable = false
+            cell.contentTextField.isUserInteractionEnabled = false
+            cell.titleLabel.textColor = UIColor.lightGray
+            cell.titleLabel.textAlignment = .center
+            return cell
+        }
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if GFUser.getScripts() != nil {
+            let script = GFUser.getScripts()[indexPath.row] as! GFScript
+            GFScript.cacheScript(script)
+            performSegue(withIdentifier: "ShowScriptDetail", sender: self)
+        }
+    }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return deleteMode
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            GFUser.removeScript(Int32(indexPath.row))
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -82,14 +122,16 @@ class ScriptTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowScriptDetail" {
+            let destinationVC = segue.destination as! SplitViewController
+            destinationVC.navigationItem.rightBarButtonItem = nil
+        }
     }
-    */
+    
 
 }

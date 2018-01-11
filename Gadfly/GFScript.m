@@ -124,4 +124,19 @@ static const NSTimeInterval timeoutInterval = 60.0;
     [task resume];
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.title forKey:@"title"];
+    [encoder encodeObject:self.content forKey:@"content"];
+    [encoder encodeObject:self.tags forKey:@"tags"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        self.title = [decoder decodeObjectForKey:@"title"];
+        self.content = [decoder decodeObjectForKey:@"content"];
+        self.tags = [decoder decodeObjectForKey:@"tags"];
+    }
+    return self;
+}
+
 @end

@@ -16,6 +16,8 @@ class SplitViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var repTableView: UITableView!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,12 +43,23 @@ class SplitViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         applyLabel.text = tagString
 
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        GFUser.add(GFScript.getScript())
+        let alert : UIAlertController = UIAlertController(title: "Success",
+                                                          message: "Saved!", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            (sender as! UIBarButtonItem).isEnabled = false
+        })
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     

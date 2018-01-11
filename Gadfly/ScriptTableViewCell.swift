@@ -11,7 +11,7 @@ import UIKit
 class ScriptTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var contentTextField: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

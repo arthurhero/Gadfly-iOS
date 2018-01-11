@@ -10,15 +10,14 @@
 
 static NSString *user_address;
 static NSArray *user_polis;
-static NSArray<GFScript *> *user_scripts;
-static NSMutableArray<NSNumber *> *user_scripts_ids;
+static NSMutableArray<GFScript *> *user_scripts;
 
 @implementation GFUser
 
 + (void)reset {
     user_address = nil;
     user_polis = nil;
-    user_scripts_ids = nil;
+    user_scripts = nil;
 }
 
 
@@ -38,25 +37,45 @@ static NSMutableArray<NSNumber *> *user_scripts_ids;
     return user_polis;
 }
 
-+ (void)addScript:(int)ID {
-    if (user_scripts_ids == nil) {
-        user_scripts_ids = [NSMutableArray new];
-        [user_scripts_ids addObject: [NSNumber numberWithInteger:ID]];
++ (void)addScript:(GFScript *)script {
+    NSData *storedEncodedScripts = [[NSUserDefaults standardUserDefaults] objectForKey:@"scripts"];
+
+    if (storedEncodedScripts != nil) {
+        NSMutableArray *user_scripts = [NSKeyedUnarchiver unarchiveObjectWithData:storedEncodedScripts];
+        [user_scripts addObject:script];
+        NSData *encodedScripts = [NSKeyedArchiver archivedDataWithRootObject:user_scripts];
+        [[NSUserDefaults standardUserDefaults] setObject:encodedScripts forKey:@"scripts"];
     } else {
-        [user_scripts_ids addObject: [NSNumber numberWithInteger:ID]];
+        NSMutableArray *user_scripts = [NSMutableArray new];
+        [user_scripts addObject:script];
+        NSData *encodedScripts = [NSKeyedArchiver archivedDataWithRootObject:user_scripts];
+        [[NSUserDefaults standardUserDefaults] setObject:encodedScripts forKey:@"scripts"];
     }
 }
 
-+ (void)cacheScripts:(NSArray *)scripts {
-    user_scripts = scripts;
-}
-
-+ (NSArray *)getScriptIDs {
-    return user_scripts_ids;
++ (void)removeScript:(int)index {
+    NSData *storedEncodedScripts = [[NSUserDefaults standardUserDefaults] objectForKey:@"scripts"];
+    
+    if (storedEncodedScripts != nil) {
+        NSMutableArray *user_scripts = [NSKeyedUnarchiver unarchiveObjectWithData:storedEncodedScripts];
+        [user_scripts removeObjectAtIndex:index];
+        NSData *encodedScripts = [NSKeyedArchiver archivedDataWithRootObject:user_scripts];
+        [[NSUserDefaults standardUserDefaults] setObject:encodedScripts forKey:@"scripts"];
+    }
 }
 
 + (NSArray *)getScripts {
-    return user_scripts;
+    NSData *storedEncodedScripts = [[NSUserDefaults standardUserDefaults] objectForKey:@"scripts"];
+    if (storedEncodedScripts != nil) {
+        NSArray *user_scripts = [NSKeyedUnarchiver unarchiveObjectWithData:storedEncodedScripts];
+        return user_scripts;
+    } else {
+        return nil;
+    }
+}
+
++ (void)removeAllScripts {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"scripts"];
 }
 
 @end

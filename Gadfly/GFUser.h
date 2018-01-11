@@ -18,9 +18,9 @@
 + (NSString *)getAddress;
 + (void)cachePolis:(NSArray *)polis;
 + (NSArray *)getPolis;
-+ (void)addScript:(int)ID;
-+ (void)cacheScripts:(NSArray *)scripts;
-+ (NSArray *)getScriptIDs;
++ (void)addScript:(GFScript *)script;
++ (void)removeScript:(int)index;
 + (NSArray *)getScripts;
++ (void)removeAllScripts;
 
 @end
