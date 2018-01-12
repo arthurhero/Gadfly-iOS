@@ -25,7 +25,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         super.viewDidLoad()
 
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        var error : NSError?
         
         do {
             let input : AnyObject! = try AVCaptureDeviceInput(device: captureDevice) as AVCaptureDeviceInput
@@ -40,16 +39,20 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
+            videoPreviewLayer?.frame = cameraView.layer.bounds
             cameraView.layer.addSublayer(videoPreviewLayer!)
             
             captureSession?.startRunning()
+            
+            print("started running")
             
             qrCodeFrameView = UIView()
             qrCodeFrameView?.layer.borderColor = UIColor.yellow.cgColor
             qrCodeFrameView?.layer.borderWidth = 2
             cameraView.addSubview(qrCodeFrameView!)
             cameraView.bringSubview(toFront: qrCodeFrameView!)
+            
+            print("end")
             
         } catch let error as NSError {
             print(error)
@@ -59,11 +62,12 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         // Do any additional setup after loading the view.
     }
 
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-        
+    func captureOutput(_ output: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+        print("this method is called")
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
+            print("No QR Code detected")
             return
         }
         
