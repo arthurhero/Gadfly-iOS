@@ -47,10 +47,12 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             print("started running")
             
             qrCodeFrameView = UIView()
-            qrCodeFrameView?.layer.borderColor = UIColor.yellow.cgColor
-            qrCodeFrameView?.layer.borderWidth = 2
+            qrCodeFrameView?.layer.borderColor = UIColor.purple.cgColor
+            qrCodeFrameView?.layer.borderWidth = 5
             cameraView.addSubview(qrCodeFrameView!)
             cameraView.bringSubview(toFront: qrCodeFrameView!)
+            qrCodeFrameView?.frame = CGRect(x: cameraView.bounds.midX - 100, y: cameraView.bounds.midY - 100, width: 200, height: 200)
+
             
             print("end")
             
@@ -63,11 +65,8 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     }
 
     func captureOutput(_ output: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        print("this method is called")
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
-            print("No QR Code detected")
             return
         }
         
@@ -77,10 +76,14 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         if metadataObj.type == AVMetadataObjectTypeQRCode {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
-            qrCodeFrameView?.frame = barCodeObject.bounds;
             
             if metadataObj.stringValue != nil {
-                print(metadataObj.stringValue)
+                let comp = metadataObj.stringValue.components(separatedBy: "=")
+                if (comp.first == "http://gadfly.mobi/services/v1/script?id") {
+                    let ID = comp.last
+                    GFScript.cacheID(ID)
+                    performSegue(withIdentifier: "unwindToHome2", sender: self)
+                }
             }
         }
     }
