@@ -27,7 +27,32 @@ class SubmittedViewController: UIViewController {
         ticketLabel.text = ticket
         QRImageView.image = qrcodeImage
 
+        QRImageView.isUserInteractionEnabled = true
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(SubmittedViewController.longPressed(sender:)))
+        longPressRecognizer.minimumPressDuration = 0.5
+
+        QRImageView.addGestureRecognizer(longPressRecognizer)
         // Do any additional setup after loading the view.
+    }
+    
+    func longPressed(sender: UILongPressGestureRecognizer) {
+        UIImageWriteToSavedPhotosAlbum(QRImageView.image!, self, #selector(SubmittedViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    func image(image: UIImage!, didFinishSavingWithError error: NSError!, contextInfo: AnyObject!) {
+        if (error != nil) {
+            let alert : UIAlertController = UIAlertController(title: "FAIL",
+                                                              message: "Fail to save this QR code.", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in })
+            alert.addAction(defaultAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert : UIAlertController = UIAlertController(title: "SUCCESS",
+                                                              message: "Saved this QR code successfully!", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in })
+            alert.addAction(defaultAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

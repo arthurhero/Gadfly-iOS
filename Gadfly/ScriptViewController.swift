@@ -79,9 +79,6 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     self.ticket = result?["ticket"] as! String
                     self.ID = String(format: "%@", result?["id"] as! NSNumber)
                     self.qrcodeImage = self.generateQRImage(with: "http://gadfly.mobi/services/v1/script?id=" + self.ID)
-                    if (self.qrcodeImage != nil) {
-                        print("generated QR image")
-                    }
                     DispatchQueue.main.sync {
                         self.performSegue(withIdentifier: "showSubmittedView", sender: self)
                     }
