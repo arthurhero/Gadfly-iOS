@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
-class QRViewController: UIViewController {
+class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    @IBAction func idButtonTapped(_ sender: Any) {
-        GFScript.cacheID("4");
-        performSegue(withIdentifier: "unwindToHome2", sender: self)
-    }
+    var captureSession:AVCaptureSession?
+    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
+    var qrCodeFrameView:UIView?
+    
+    @IBOutlet weak var cameraView: UIView!
     
     @IBAction func CancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -22,9 +24,63 @@ class QRViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        var error : NSError?
+        
+        do {
+            let input : AnyObject! = try AVCaptureDeviceInput(device: captureDevice) as AVCaptureDeviceInput
+            captureSession = AVCaptureSession()
+            captureSession?.addInput(input as! AVCaptureInput)
+            
+            let captureMetadataOutput = AVCaptureMetadataOutput()
+            captureSession?.addOutput(captureMetadataOutput)
+            
+            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+            
+            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            videoPreviewLayer?.frame = view.layer.bounds
+            cameraView.layer.addSublayer(videoPreviewLayer!)
+            
+            captureSession?.startRunning()
+            
+            qrCodeFrameView = UIView()
+            qrCodeFrameView?.layer.borderColor = UIColor.yellow.cgColor
+            qrCodeFrameView?.layer.borderWidth = 2
+            cameraView.addSubview(qrCodeFrameView!)
+            cameraView.bringSubview(toFront: qrCodeFrameView!)
+            
+        } catch let error as NSError {
+            print(error)
+        }
+
+        
         // Do any additional setup after loading the view.
     }
 
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        
+        // Check if the metadataObjects array is not nil and it contains at least one object.
+        if metadataObjects == nil || metadataObjects.count == 0 {
+            qrCodeFrameView?.frame = CGRect.zero
+            return
+        }
+        
+        // Get the metadata object.
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if metadataObj.type == AVMetadataObjectTypeQRCode {
+            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
+            qrCodeFrameView?.frame = barCodeObject.bounds;
+            
+            if metadataObj.stringValue != nil {
+                print(metadataObj.stringValue)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

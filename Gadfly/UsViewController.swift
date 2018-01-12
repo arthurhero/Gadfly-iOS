@@ -9,9 +9,15 @@
 import UIKit
 
 class UsViewController: UIViewController {
-
+    
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var introTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoImageView.image = #imageLiteral(resourceName: "gadfly")
+        introTextView.isUserInteractionEnabled = false
 
         // Do any additional setup after loading the view.
     }
