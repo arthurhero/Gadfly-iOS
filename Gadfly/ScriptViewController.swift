@@ -19,6 +19,25 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     var ticket : String = ""
     var ID : String = ""
+    var qrcodeImage : UIImage!
+    
+    func generateQRImage(with string : String) -> UIImage!{
+        let data = string.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+        let filter = CIFilter(name: "CIQRCodeGenerator")
+        
+        filter?.setValue(data, forKey: "inputMessage")
+        filter?.setValue("Q", forKey: "inputCorrectionLevel")
+        let resultCIImage : CIImage! = filter?.outputImage
+        
+        let scaleX = 140 / resultCIImage.extent.size.width
+        let scaleY = 140 / resultCIImage.extent.size.height
+        
+        let transformedImage = resultCIImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+        
+        let resultUIImage : UIImage! = UIImage(ciImage: transformedImage)
+        
+        return resultUIImage
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +77,11 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     script.tags = self.tagsSelected as! NSMutableArray
                     GFUser.add(script)
                     self.ticket = result?["ticket"] as! String
-                    print(self.ticket)
                     self.ID = String(format: "%@", result?["id"] as! NSNumber)
-                    print(self.ID)
+                    self.qrcodeImage = self.generateQRImage(with: "http://gadfly.mobi/services/v1/script?id=" + self.ID)
+                    if (self.qrcodeImage != nil) {
+                        print("generated QR image")
+                    }
                     DispatchQueue.main.sync {
                         self.performSegue(withIdentifier: "showSubmittedView", sender: self)
                     }
@@ -125,6 +146,7 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if segue.identifier == "showSubmittedView" {
             let destinationVC = segue.destination as! SubmittedViewController
             destinationVC.ticket = self.ticket
+            destinationVC.qrcodeImage = self.qrcodeImage
         }
     }
     

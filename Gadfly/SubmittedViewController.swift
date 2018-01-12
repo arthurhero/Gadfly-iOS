@@ -11,6 +11,7 @@ import UIKit
 class SubmittedViewController: UIViewController {
     
     var ticket : String = ""
+    var qrcodeImage : UIImage!
     
     @IBOutlet weak var QRImageView: UIImageView!
     @IBOutlet weak var ticketLabel: UILabel!
@@ -24,6 +25,7 @@ class SubmittedViewController: UIViewController {
         super.viewDidLoad()
         
         ticketLabel.text = ticket
+        QRImageView.image = qrcodeImage
 
         // Do any additional setup after loading the view.
     }
