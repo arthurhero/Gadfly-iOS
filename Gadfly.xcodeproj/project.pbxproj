@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B5A01DC8E4367A19F9501D04 /* Pods_GadflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199FAA5605829CBB702EEB87 /* Pods_GadflyTests.framework */; };
+		BF3F3BF6200834F60020B6C2 /* ManageScriptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F3BF5200834F60020B6C2 /* ManageScriptViewController.swift */; };
+		BF3F3BF8200835C00020B6C2 /* DeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F3BF7200835C00020B6C2 /* DeleteViewController.swift */; };
 		BF4BE4E120000581007583E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BE4E020000581007583E1 /* AppDelegate.swift */; };
 		BF4BE4E820000581007583E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4BE4E620000581007583E1 /* Main.storyboard */; };
 		BF4BE4EA20000581007583E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4BE4E920000581007583E1 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		5E65D4C5CAEC1C9272B454C0 /* Pods-Gadfly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gadfly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gadfly/Pods-Gadfly.release.xcconfig"; sourceTree = "<group>"; };
 		65169275D10BC1F74A8F1523 /* Pods-GadflyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyUITests/Pods-GadflyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		865F2B5938179FB1ECAD64D4 /* Pods-GadflyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GadflyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GadflyTests/Pods-GadflyTests.release.xcconfig"; sourceTree = "<group>"; };
+		BF3F3BF5200834F60020B6C2 /* ManageScriptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageScriptViewController.swift; sourceTree = "<group>"; };
+		BF3F3BF7200835C00020B6C2 /* DeleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteViewController.swift; sourceTree = "<group>"; };
 		BF4BE4DD20000581007583E1 /* Gadfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gadfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4BE4E020000581007583E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF4BE4E720000581007583E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,9 +183,11 @@
 				BF4DFA7F200067FA0005342B /* SearchResultsController.swift */,
 				BF4DFA71200060DE0005342B /* AddressViewController.swift */,
 				BF4DFA6F200060C70005342B /* HomeViewController.swift */,
+				BF3F3BF5200834F60020B6C2 /* ManageScriptViewController.swift */,
 				BF4DFA73200060E80005342B /* ScriptViewController.swift */,
 				BF4DFA7D2000627A0005342B /* RepTableViewCell.swift */,
 				BF4DFAA92005674F0005342B /* SmallRepTableViewCell.swift */,
+				BF3F3BF7200835C00020B6C2 /* DeleteViewController.swift */,
 				BF4DFA7B2000626B0005342B /* RepTableViewController.swift */,
 				BF4DFA77200061260005342B /* QRViewController.swift */,
 				BF4DFA75200061020005342B /* UsViewController.swift */,
@@ -533,6 +539,7 @@
 				BF4DFA7A2000615D0005342B /* SubmittedViewController.swift in Sources */,
 				BF4BE4E120000581007583E1 /* AppDelegate.swift in Sources */,
 				BF4DFA78200061260005342B /* QRViewController.swift in Sources */,
+				BF3F3BF6200834F60020B6C2 /* ManageScriptViewController.swift in Sources */,
 				BF4DFA76200061020005342B /* UsViewController.swift in Sources */,
 				BF4DFAA62003F8C50005342B /* SplitViewController.swift in Sources */,
 				BF4DFAA42001308C0005342B /* GFTag.m in Sources */,
@@ -547,6 +554,7 @@
 				BF4DFA80200067FA0005342B /* SearchResultsController.swift in Sources */,
 				BF4DFA74200060E80005342B /* ScriptViewController.swift in Sources */,
 				BF4DFA9E2001306C0005342B /* GFScript.m in Sources */,
+				BF3F3BF8200835C00020B6C2 /* DeleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
