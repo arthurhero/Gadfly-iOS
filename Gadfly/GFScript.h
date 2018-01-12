@@ -48,4 +48,11 @@
 + (void)submitScriptWithDictionary:(NSDictionary *)dict
          completionHandler:(void(^_Nonnull)(NSDictionary *))completion;
 
+/*!
+ @discussion No matter success or failure, this method directly returns the dictionary returned by
+ the API. See Web-Server Wiki on Github.
+ */
++ (void)deleteScriptWithTicket:(NSString *)ticket
+                 completionHandler:(void(^_Nonnull)(NSDictionary *))completion;
+
 @end

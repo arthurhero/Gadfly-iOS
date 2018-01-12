@@ -140,7 +140,40 @@ static const NSTimeInterval timeoutInterval = 60.0;
 
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"Fetch ID Unseccessful!");
+            NSLog(@"Submit Script Unseccessful!");
+            return;
+        }
+        if (!(response)){
+            NSLog(@"No Response!");
+            return;
+        }
+        NSLog(@"Successful!");
+        NSDictionary *result=[NSDictionary new];
+        NSError *JSONParsingError;
+        result=[NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONParsingError];
+        completion(result);
+    }];
+    
+    [task resume];
+}
+
++ (void)deleteScriptWithTicket:(NSString *)ticket
+             completionHandler:(void(^_Nonnull)(NSDictionary *))completion {
+    NSMutableArray *queryItems = [NSMutableArray<NSURLQueryItem *> new];
+    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"ticket" value:ticket]];
+    
+    NSURLComponents *components = [NSURLComponents componentsWithString:scriptURL];
+    components.queryItems = queryItems;
+    NSURL *URL = components.URL;
+
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
+    [req setURL: URL];
+    [req setHTTPMethod:@"DELETE"];
+    [req setValue:APIKey forHTTPHeaderField:@"APIKey"];
+
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession]dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Delete Script Unseccessful!");
             return;
         }
         if (!(response)){
