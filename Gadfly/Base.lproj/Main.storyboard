@@ -722,20 +722,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ticket Numer: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrh-bX-Hi6">
-                                <rect key="frame" x="131" y="287" width="112" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ticket Numer: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrh-bX-Hi6">
+                                <rect key="frame" x="131" y="317" width="112" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(You need this to delete or edit this script)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bq8-tO-rpB">
-                                <rect key="frame" x="27" y="316" width="320" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(You need this to delete or edit this script)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bq8-tO-rpB">
+                                <rect key="frame" x="27" y="346" width="320" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KT9-cc-DA6">
-                                <rect key="frame" x="27" y="358" width="320" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KT9-cc-DA6">
+                                <rect key="frame" x="27" y="375" width="320" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -743,46 +743,70 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This script is automatically saved on your device." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVr-l3-obW">
                                 <rect key="frame" x="62" y="524" width="251" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="mzu-dg-TBn"/>
+                                    <constraint firstAttribute="height" constant="50" id="QJv-Ja-s2Z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nND-9p-A2D">
-                                <rect key="frame" x="117" y="122" width="140" height="140"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nND-9p-A2D">
+                                <rect key="frame" x="81" y="138" width="140" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="LFK-si-LOf"/>
+                                    <constraint firstAttribute="width" constant="140" id="PE0-IK-Tvr"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your script to friends!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gy-z2-rHs">
-                                <rect key="frame" x="81" y="74" width="213" height="21"/>
+                                <rect key="frame" x="81" y="64" width="213" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Long press to save QR code image)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS0-5W-uXE">
+                                <rect key="frame" x="63" y="86" width="248" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mW-hM-s8i">
+                                <rect key="frame" x="244" y="228" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icons8-twitter-50"/>
+                                <connections>
+                                    <action selector="twitterButtonTapped:" destination="cB2-FY-pWT" eventType="touchUpInside" id="tXT-1r-dy3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EB3-eT-OCb">
+                                <rect key="frame" x="244" y="138" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icons8-facebook-50"/>
+                                <connections>
+                                    <action selector="facebookButtonTapped:" destination="cB2-FY-pWT" eventType="touchUpInside" id="vdy-Tz-YjO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bq8-tO-rpB" firstAttribute="trailing" secondItem="KT9-cc-DA6" secondAttribute="trailing" id="1qB-8R-ELi"/>
-                            <constraint firstItem="0Gy-z2-rHs" firstAttribute="centerX" secondItem="nND-9p-A2D" secondAttribute="centerX" id="CYK-rz-g9w"/>
-                            <constraint firstItem="bq8-tO-rpB" firstAttribute="leading" secondItem="KT9-cc-DA6" secondAttribute="leading" id="E5b-pA-sEF"/>
-                            <constraint firstItem="gTA-rr-Fc3" firstAttribute="top" secondItem="KT9-cc-DA6" secondAttribute="bottom" constant="40" id="Gfm-xO-Kxe"/>
-                            <constraint firstItem="nND-9p-A2D" firstAttribute="centerX" secondItem="0Kd-Ih-yT4" secondAttribute="centerX" id="JaV-QF-6uA"/>
-                            <constraint firstItem="P7p-KE-3UT" firstAttribute="top" secondItem="uVr-l3-obW" secondAttribute="bottom" constant="93" id="MWS-B7-zhA"/>
-                            <constraint firstItem="Qrh-bX-Hi6" firstAttribute="centerX" secondItem="bq8-tO-rpB" secondAttribute="centerX" id="QKv-hh-Jvg"/>
-                            <constraint firstItem="Qrh-bX-Hi6" firstAttribute="top" secondItem="nND-9p-A2D" secondAttribute="bottom" constant="25" id="Twe-PR-y8v"/>
-                            <constraint firstItem="4OG-yt-5qr" firstAttribute="top" secondItem="gTA-rr-Fc3" secondAttribute="bottom" constant="8" symbolic="YES" id="ViV-ga-aZv"/>
-                            <constraint firstItem="4OG-yt-5qr" firstAttribute="centerX" secondItem="uVr-l3-obW" secondAttribute="centerX" id="YCe-RM-O9x"/>
-                            <constraint firstItem="gTA-rr-Fc3" firstAttribute="centerX" secondItem="4OG-yt-5qr" secondAttribute="centerX" id="clG-Au-r68"/>
-                            <constraint firstItem="uVr-l3-obW" firstAttribute="leading" secondItem="0Kd-Ih-yT4" secondAttribute="leadingMargin" constant="46" id="fST-md-mfD"/>
-                            <constraint firstItem="KT9-cc-DA6" firstAttribute="top" secondItem="bq8-tO-rpB" secondAttribute="bottom" constant="21" id="gHg-hS-Uqn"/>
-                            <constraint firstItem="KT9-cc-DA6" firstAttribute="centerX" secondItem="gTA-rr-Fc3" secondAttribute="centerX" id="gOd-dZ-nvp"/>
-                            <constraint firstItem="0Gy-z2-rHs" firstAttribute="top" secondItem="ueJ-AX-HD1" secondAttribute="bottom" constant="54" id="gce-sM-Zqp"/>
-                            <constraint firstItem="uVr-l3-obW" firstAttribute="top" secondItem="4OG-yt-5qr" secondAttribute="bottom" constant="26" id="nmZ-Gm-4J6"/>
-                            <constraint firstItem="bq8-tO-rpB" firstAttribute="top" secondItem="Qrh-bX-Hi6" secondAttribute="bottom" constant="8" symbolic="YES" id="r4h-xt-cYh"/>
-                            <constraint firstItem="nND-9p-A2D" firstAttribute="centerX" secondItem="Qrh-bX-Hi6" secondAttribute="centerX" id="tUq-4f-576"/>
-                            <constraint firstItem="nND-9p-A2D" firstAttribute="top" secondItem="0Gy-z2-rHs" secondAttribute="bottom" constant="27" id="toG-Oa-o0d"/>
+                            <constraint firstItem="4OG-yt-5qr" firstAttribute="top" secondItem="gTA-rr-Fc3" secondAttribute="bottom" constant="8" symbolic="YES" id="5rl-MR-igX"/>
+                            <constraint firstItem="0Gy-z2-rHs" firstAttribute="centerX" secondItem="gS0-5W-uXE" secondAttribute="centerX" id="64C-h5-mpb"/>
+                            <constraint firstItem="gS0-5W-uXE" firstAttribute="top" secondItem="0Gy-z2-rHs" secondAttribute="bottom" constant="1" id="876-Dd-wxQ"/>
+                            <constraint firstItem="Qrh-bX-Hi6" firstAttribute="top" secondItem="nND-9p-A2D" secondAttribute="bottom" constant="25" id="8En-H7-npk"/>
+                            <constraint firstItem="gTA-rr-Fc3" firstAttribute="top" secondItem="KT9-cc-DA6" secondAttribute="bottom" constant="40" id="9Q9-SH-19T"/>
+                            <constraint firstItem="KT9-cc-DA6" firstAttribute="top" secondItem="bq8-tO-rpB" secondAttribute="bottom" constant="21" id="A8F-Kt-nJm"/>
+                            <constraint firstItem="nND-9p-A2D" firstAttribute="centerX" secondItem="Qrh-bX-Hi6" secondAttribute="centerX" id="DT8-Ku-U2F"/>
+                            <constraint firstItem="gS0-5W-uXE" firstAttribute="centerX" secondItem="nND-9p-A2D" secondAttribute="centerX" id="DmL-fW-omG"/>
+                            <constraint firstItem="KT9-cc-DA6" firstAttribute="centerX" secondItem="gTA-rr-Fc3" secondAttribute="centerX" id="IH1-gJ-M2j"/>
+                            <constraint firstItem="4OG-yt-5qr" firstAttribute="centerX" secondItem="uVr-l3-obW" secondAttribute="centerX" id="LLk-87-q4i"/>
+                            <constraint firstItem="bq8-tO-rpB" firstAttribute="leading" secondItem="KT9-cc-DA6" secondAttribute="leading" id="MYh-c7-VeZ"/>
+                            <constraint firstItem="0Gy-z2-rHs" firstAttribute="top" secondItem="ueJ-AX-HD1" secondAttribute="bottom" constant="44" id="Qky-KQ-1dT"/>
+                            <constraint firstItem="gS0-5W-uXE" firstAttribute="centerX" secondItem="0Kd-Ih-yT4" secondAttribute="centerX" id="U4C-PK-o42"/>
+                            <constraint firstItem="uVr-l3-obW" firstAttribute="top" secondItem="4OG-yt-5qr" secondAttribute="bottom" constant="26" id="WaL-qi-srI"/>
+                            <constraint firstItem="bq8-tO-rpB" firstAttribute="trailing" secondItem="KT9-cc-DA6" secondAttribute="trailing" id="X9t-Lk-HQR"/>
+                            <constraint firstItem="gTA-rr-Fc3" firstAttribute="centerX" secondItem="4OG-yt-5qr" secondAttribute="centerX" id="YPc-jP-xk6"/>
+                            <constraint firstItem="uVr-l3-obW" firstAttribute="leading" secondItem="0Kd-Ih-yT4" secondAttribute="leadingMargin" constant="46" id="cC2-5Q-xCV"/>
+                            <constraint firstItem="bq8-tO-rpB" firstAttribute="top" secondItem="Qrh-bX-Hi6" secondAttribute="bottom" constant="8" symbolic="YES" id="kqc-EJ-IPc"/>
+                            <constraint firstItem="P7p-KE-3UT" firstAttribute="top" secondItem="uVr-l3-obW" secondAttribute="bottom" constant="93" id="tL7-et-CFU"/>
+                            <constraint firstItem="Qrh-bX-Hi6" firstAttribute="centerX" secondItem="bq8-tO-rpB" secondAttribute="centerX" id="vPU-Mh-Tb0"/>
+                            <constraint firstItem="nND-9p-A2D" firstAttribute="top" secondItem="gS0-5W-uXE" secondAttribute="bottom" constant="18" id="xhO-Kj-brQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -967,8 +991,10 @@
         <image name="heart-7" width="30" height="30"/>
         <image name="house-7" width="30" height="30"/>
         <image name="icons8-checked-filled-50" width="50" height="50"/>
+        <image name="icons8-facebook-50" width="50" height="50"/>
         <image name="icons8-find-user-male-filled-50" width="50" height="50"/>
         <image name="icons8-qr-code-50" width="50" height="50"/>
+        <image name="icons8-twitter-50" width="50" height="50"/>
         <image name="write-simple-7" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>

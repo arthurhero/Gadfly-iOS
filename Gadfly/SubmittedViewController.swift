@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class SubmittedViewController: UIViewController {
     
@@ -53,6 +54,14 @@ class SubmittedViewController: UIViewController {
             alert.addAction(defaultAction)
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func facebookButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func twitterButtonTapped(_ sender: Any) {
+        
     }
 
     override func didReceiveMemoryWarning() {

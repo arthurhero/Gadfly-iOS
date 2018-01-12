@@ -6,6 +6,10 @@ target 'Gadfly' do
   use_frameworks!
   pod 'GoogleMaps', '~> 2.5'
   pod 'GooglePlaces', '~> 2.5'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+  pod 'TwitterKit'
 
   # Pods for Gadfly
 
