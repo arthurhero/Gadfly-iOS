@@ -13,6 +13,9 @@ class HomeViewController: UIViewController {
     var readyForRep : Bool = false
     var readyForScript : Bool = false
     
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var centerLabel: UILabel!
     @IBOutlet weak var lowerButton: UIButton!
@@ -38,9 +41,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         GFTag.initTags()
-        if (UserDefaults.standard.string(forKey: "address") != nil) {
-            GFUser.cacheAddress(UserDefaults.standard.string(forKey: "address"))
-        }
+        logoImageView.image = #imageLiteral(resourceName: "gadfly_logo_icon")
         // Do any additional setup after loading the view.
     }
     
