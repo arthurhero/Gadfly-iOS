@@ -17,11 +17,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var centerLabel: UILabel!
     @IBOutlet weak var lowerButton: UIButton!
     @IBOutlet weak var cleanButton: UIButton!
+    @IBOutlet weak var qrcodeButton: UIBarButtonItem!
     
     func enterLoadingMode() {
         searchButton.isEnabled = false
         lowerButton.isEnabled = false
         cleanButton.isEnabled = false
+        qrcodeButton.isEnabled = false
         centerLabel.text = "Loading... Please be patient..."
     }
     
@@ -29,6 +31,7 @@ class HomeViewController: UIViewController {
         searchButton.isEnabled = true
         lowerButton.isEnabled = true
         cleanButton.isEnabled = true
+        qrcodeButton.isEnabled = true
         centerLabel.text = "GET YOUR REPS!"
     }
     
@@ -63,7 +66,9 @@ class HomeViewController: UIViewController {
                     let polis : [GFPoli] = result as! [GFPoli]
                     GFUser.cachePolis(polis)
                     self.readyForRep = false
-                    self.performSegue(withIdentifier: "showRepTableView", sender: self)
+                    DispatchQueue.main.sync {
+                        self.performSegue(withIdentifier: "showRepTableView", sender: self)
+                    }
                 }
             })
 
@@ -117,8 +122,9 @@ class HomeViewController: UIViewController {
                 } else {
                     let polis : [GFPoli] = result as! [GFPoli]
                     GFUser.cachePolis(polis)
-                    self.centerLabel.text = "Done!"
-                    self.performSegue(withIdentifier: "showRepTableView", sender: self)
+                    DispatchQueue.main.sync {
+                        self.performSegue(withIdentifier: "showRepTableView", sender: self)
+                    }
                 }
             })
         } else {

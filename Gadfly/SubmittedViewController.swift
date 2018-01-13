@@ -32,11 +32,27 @@ class SubmittedViewController: UIViewController {
         longPressRecognizer.minimumPressDuration = 0.5
 
         QRImageView.addGestureRecognizer(longPressRecognizer)
+        
+        ticketLabel.isUserInteractionEnabled = true
+        let longPressRecognizer2 = UILongPressGestureRecognizer(target: self, action: #selector(SubmittedViewController.longPressed2(sender:)))
+        longPressRecognizer2.minimumPressDuration = 0.2
+        
+        ticketLabel.addGestureRecognizer(longPressRecognizer2)
         // Do any additional setup after loading the view.
     }
     
     func longPressed(sender: UILongPressGestureRecognizer) {
         UIImageWriteToSavedPhotosAlbum(QRImageView.image!, self, #selector(SubmittedViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    func longPressed2(sender: UILongPressGestureRecognizer) {
+        UIPasteboard.general.string = ticketLabel.text!
+        ticketLabel.textColor = UIColor.darkGray
+        let alert : UIAlertController = UIAlertController(title: "COPIED",
+                                                          message: "Ticket number copied to clipboard successfully.", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction : UIAlertAction! = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in })
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func image(image: UIImage!, didFinishSavingWithError error: NSError!, contextInfo: AnyObject!) {

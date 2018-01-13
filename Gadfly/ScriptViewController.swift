@@ -15,7 +15,7 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var tagPickerView: UIPickerView!
     
     let pickerDataSource = [["Federal","State"],["Senator","Representative"]]
-    var tagsSelected = ["1","3"]
+    var tagsSelected : NSMutableArray = ["1","3"]
     
     var ticket : String = ""
     var ID : String = ""
@@ -72,8 +72,8 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 }
                 else {
                     var script : GFScript! = GFScript()
-                    script.title = dict["title"]
-                    script.content =  dict["content"]
+                    script.title = dict["title"] as! String
+                    script.content =  dict["content"] as! String
                     script.tags = self.tagsSelected as! NSMutableArray
                     GFUser.add(script)
                     self.ticket = result?["ticket"] as! String
