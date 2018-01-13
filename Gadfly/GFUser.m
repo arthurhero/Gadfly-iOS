@@ -8,33 +8,35 @@
 
 #import "GFUser.h"
 
-static NSString *user_address;
-static NSArray *user_polis;
-static NSMutableArray<GFScript *> *user_scripts;
-
 @implementation GFUser
 
 + (void)reset {
-    user_address = nil;
-    user_polis = nil;
-    user_scripts = nil;
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"polis"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"address"];
 }
 
 
 + (void)cacheAddress:(NSString *)address {
-    user_address=address;
+    [[NSUserDefaults standardUserDefaults] setObject:address forKey:@"address"];
 }
 
 + (NSString *)getAddress {
-    return user_address;
+    return [[NSUserDefaults standardUserDefaults] stringForKey:@"address"];
 }
 
 + (void)cachePolis:(NSArray *)polis {
-    user_polis=polis;
+    NSData *encodedScripts = [NSKeyedArchiver archivedDataWithRootObject:polis];
+    [[NSUserDefaults standardUserDefaults] setObject:encodedScripts forKey:@"polis"];
 }
 
 + (NSArray *)getPolis {
-    return user_polis;
+    NSData *storedEncodedScripts = [[NSUserDefaults standardUserDefaults] objectForKey:@"polis"];
+    if (storedEncodedScripts != nil) {
+        NSArray *user_polis = [NSKeyedUnarchiver unarchiveObjectWithData:storedEncodedScripts];
+        return user_polis;
+    } else {
+        return nil;
+    }
 }
 
 + (void)addScript:(GFScript *)script {

@@ -83,4 +83,25 @@ static const NSTimeInterval timeoutInterval = 60.0;
     NSLog(@"%@",self.party);
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.party forKey:@"party"];
+    [encoder encodeObject:self.picURL forKey:@"picURL"];
+    [encoder encodeObject:self.phone forKey:@"phone"];
+    [encoder encodeObject:self.email forKey:@"email"];
+    [encoder encodeObject:self.tags forKey:@"tags"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        self.name = [decoder decodeObjectForKey:@"name"];
+        self.party = [decoder decodeObjectForKey:@"party"];
+        self.picURL = [decoder decodeObjectForKey:@"picURL"];
+        self.phone = [decoder decodeObjectForKey:@"phone"];
+        self.email = [decoder decodeObjectForKey:@"email"];
+        self.tags = [decoder decodeObjectForKey:@"tags"];
+    }
+    return self;
+}
+
 @end

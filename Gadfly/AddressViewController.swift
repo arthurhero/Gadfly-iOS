@@ -26,7 +26,6 @@ class AddressViewController: UIViewController, UISearchBarDelegate, LocateOnTheM
     
     @IBAction func ConfirmButtonTapped(_ sender: Any) {
         if selectedAddress != "" {
-            UserDefaults.standard.set(selectedAddress, forKey: "address")
             GFUser.cacheAddress(selectedAddress)
             performSegue(withIdentifier: "unwindToHome", sender: self)
         }
