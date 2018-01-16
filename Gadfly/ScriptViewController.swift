@@ -34,7 +34,10 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         let transformedImage = resultCIImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
         
-        let resultUIImage : UIImage! = UIImage(ciImage: transformedImage)
+        let context = CIContext()
+        let cgimg = context.createCGImage(transformedImage, from: transformedImage.extent)
+        
+        let resultUIImage : UIImage! = UIImage(cgImage: cgimg!)
         
         return resultUIImage
     }
@@ -76,10 +79,10 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     script.content =  dict["content"] as! String
                     script.tags = self.tagsSelected as! NSMutableArray
                     GFUser.add(script)
-                    self.ticket = result?["ticket"] as! String
-                    self.ID = String(format: "%@", result?["id"] as! NSNumber)
-                    self.qrcodeImage = self.generateQRImage(with: "http://gadfly.mobi/services/v1/script?id=" + self.ID)
                     DispatchQueue.main.sync {
+                        self.ticket = result?["ticket"] as! String
+                        self.ID = String(format: "%@", result?["id"] as! NSNumber)
+                        self.qrcodeImage = self.generateQRImage(with: "http://gadfly.mobi/services/v1/script?id=" + self.ID)
                         self.performSegue(withIdentifier: "showSubmittedView", sender: self)
                     }
                 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookShare
 
 class SubmittedViewController: UIViewController {
     
@@ -72,7 +73,21 @@ class SubmittedViewController: UIViewController {
     }
     
     @IBAction func facebookButtonTapped(_ sender: Any) {
-        
+        if (qrcodeImage != nil) {
+            let image = qrcodeImage!
+            let photo = Photo(image: image, userGenerated: true)
+            let content = PhotoShareContent(photos: [photo])
+            
+            let shareDialog = ShareDialog(content: content)
+            shareDialog.presentingViewController = self
+            shareDialog.mode = .shareSheet
+            shareDialog.failsOnInvalidData = true
+            do {
+                try shareDialog.show()
+            } catch {
+                print("Error showing facebook dialog")
+            }
+        }
     }
     
     @IBAction func twitterButtonTapped(_ sender: Any) {
