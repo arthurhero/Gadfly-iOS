@@ -14,6 +14,9 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var tagPickerView: UIPickerView!
     
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    
     let pickerDataSource = [["Federal","State"],["Senator","Representative"]]
     var tagsSelected : NSMutableArray = ["1","3"]
     
@@ -51,6 +54,11 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         tagPickerView.delegate = self
         tagPickerView.dataSource = self
+        
+        submitButton.layer.cornerRadius = 5
+        clearButton.layer.borderColor = UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1).cgColor
+        clearButton.layer.borderWidth = 1
+        clearButton.layer.cornerRadius = 5
 
         // Do any additional setup after loading the view.
     }

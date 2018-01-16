@@ -44,18 +44,14 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             
             captureSession?.startRunning()
             
-            print("started running")
-            
             qrCodeFrameView = UIView()
-            qrCodeFrameView?.layer.borderColor = UIColor.purple.cgColor
-            qrCodeFrameView?.layer.borderWidth = 5
+            qrCodeFrameView?.layer.borderColor = UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1).cgColor
+            qrCodeFrameView?.layer.borderWidth = 4
+            qrCodeFrameView?.layer.cornerRadius = 5
             cameraView.addSubview(qrCodeFrameView!)
             cameraView.bringSubview(toFront: qrCodeFrameView!)
             qrCodeFrameView?.frame = CGRect(x: cameraView.bounds.midX - 100, y: cameraView.bounds.midY - 100, width: 200, height: 200)
 
-            
-            print("end")
-            
         } catch let error as NSError {
             print(error)
         }

@@ -41,7 +41,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         GFTag.initTags()
-        logoImageView.image = #imageLiteral(resourceName: "gadfly_logo_icon")
+        
+        lowerButton.layer.cornerRadius = 5
+        cleanButton.layer.borderColor = UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1).cgColor
+        cleanButton.layer.borderWidth = 2
+        cleanButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     

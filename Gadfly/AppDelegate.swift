@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UINavigationBar.appearance().tintColor = UIColor.purple
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.purple]
+        UINavigationBar.appearance().tintColor = UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1)]
 
         GMSServices.provideAPIKey("AIzaSyC2rmzwInAz2gOIN__iOw_ddVH_GKLLFIU")
         GMSPlacesClient.provideAPIKey("AIzaSyC2rmzwInAz2gOIN__iOw_ddVH_GKLLFIU")
