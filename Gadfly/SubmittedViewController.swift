@@ -12,6 +12,7 @@ import TwitterKit
 
 class SubmittedViewController: UIViewController {
     
+    var ID : String = ""
     var ticket : String = ""
     var qrcodeImage : UIImage!
     
@@ -44,7 +45,8 @@ class SubmittedViewController: UIViewController {
     }
     
     func tapped(sender: UITapGestureRecognizer) {
-        UIImageWriteToSavedPhotosAlbum(QRImageView.image!, self, #selector(SubmittedViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
+        let image = edit(image: QRImageView.image!, ID: self.ID)
+        UIImageWriteToSavedPhotosAlbum(image!, self, #selector(SubmittedViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     func longPressed2(sender: UILongPressGestureRecognizer) {
@@ -73,10 +75,31 @@ class SubmittedViewController: UIViewController {
         }
     }
     
+    func edit(image : UIImage!, ID : String) -> UIImage! {
+        let newSize = CGSize(width: 140, height: 160)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        
+        image.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: 140, height: 140)))
+        
+        let textFontAttributes = [
+            NSFontAttributeName: UIFont(name: "Copperplate", size: 11)!,
+            NSForegroundColorAttributeName: UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1),
+            ]
+        
+        let text : NSString = "Gadfly Call Script " + ID as NSString
+        
+        text.draw(in: CGRect(origin: CGPoint(x: 3, y: 140) , size: CGSize(width: 140, height: 20)), withAttributes: textFontAttributes)
+        
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return result
+    }
+    
     @IBAction func facebookButtonTapped(_ sender: Any) {
         if (qrcodeImage != nil) {
-            let image = qrcodeImage!
-            let photo = Photo(image: image, userGenerated: true)
+            let image = edit(image: qrcodeImage!, ID: self.ID)
+            let photo = Photo(image: image!, userGenerated: true)
             let content = PhotoShareContent(photos: [photo])
             
             let shareDialog = ShareDialog(content: content)
@@ -93,7 +116,7 @@ class SubmittedViewController: UIViewController {
     
     @IBAction func twitterButtonTapped(_ sender: Any) {
         if (qrcodeImage != nil) {
-            let image = qrcodeImage!
+            let image = edit(image: qrcodeImage!, ID: self.ID)
             let composer = TWTRComposer()
             
             composer.setText("I've composed a Gadfly Call Script!")

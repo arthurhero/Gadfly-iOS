@@ -127,8 +127,9 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "System Font Regular", size: 17.0)
+            pickerLabel?.font = UIFont(name: "Copperplate", size: 17.0)
             pickerLabel?.textAlignment = .center
+            pickerLabel?.textColor = UIColor.darkGray
         }
         pickerLabel?.text = pickerDataSource[component][row]
         return pickerLabel!
@@ -153,6 +154,7 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSubmittedView" {
             let destinationVC = segue.destination as! SubmittedViewController
+            destinationVC.ID = self.ID
             destinationVC.ticket = self.ticket
             destinationVC.qrcodeImage = self.qrcodeImage
         }
