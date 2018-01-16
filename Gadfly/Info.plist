@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>twitter</string>
+        <string>twitterauth</string>
+    </array>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app requires access to your photo library.</string>
 	<key>NSLocationUsageDescription</key>
@@ -57,6 +62,12 @@
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>twitterkit-hZmGcfB0YoMuHdO9MBzbcgJoW</string>
+            </array>
+        </dict>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>

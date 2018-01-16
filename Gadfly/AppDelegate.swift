@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import FBSDKCoreKit
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,11 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey("AIzaSyC2rmzwInAz2gOIN__iOw_ddVH_GKLLFIU")
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        TWTRTwitter.sharedInstance().start(withConsumerKey: "hZmGcfB0YoMuHdO9MBzbcgJoW", consumerSecret: "iLENdsgZZCMeXdR3GPJXsV0OKWBHrQLWynWMGdydoCFYhlhgep")
+
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(app,
+        let handled = TWTRTwitter.sharedInstance().application(app, open: url, options: options) && FBSDKApplicationDelegate.sharedInstance().application(app,
                                                                             open: url,
                                                                             sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?,
                                                                             annotation: options[UIApplicationOpenURLOptionsKey.annotation])

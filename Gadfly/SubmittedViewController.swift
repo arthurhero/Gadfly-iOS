@@ -8,6 +8,7 @@
 
 import UIKit
 import FacebookShare
+import TwitterKit
 
 class SubmittedViewController: UIViewController {
     
@@ -30,7 +31,7 @@ class SubmittedViewController: UIViewController {
 
         QRImageView.isUserInteractionEnabled = true
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(SubmittedViewController.longPressed(sender:)))
-        longPressRecognizer.minimumPressDuration = 0.5
+        longPressRecognizer.minimumPressDuration = 0.2
 
         QRImageView.addGestureRecognizer(longPressRecognizer)
         
@@ -43,6 +44,7 @@ class SubmittedViewController: UIViewController {
     }
     
     func longPressed(sender: UILongPressGestureRecognizer) {
+        sender.isEnabled = false
         UIImageWriteToSavedPhotosAlbum(QRImageView.image!, self, #selector(SubmittedViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
     }
     
@@ -91,7 +93,21 @@ class SubmittedViewController: UIViewController {
     }
     
     @IBAction func twitterButtonTapped(_ sender: Any) {
-        
+        if (qrcodeImage != nil) {
+            let image = qrcodeImage!
+            let composer = TWTRComposer()
+            
+            composer.setText("I've composed a Gadfly Call Script!")
+            composer.setImage(image)
+            
+            composer.show(from: self, completion: { (result) in
+                if (result == .done) {
+                    print("Successfully composed Tweet")
+                } else {
+                    print("Cancelled composing")
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
