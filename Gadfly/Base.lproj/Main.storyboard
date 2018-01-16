@@ -79,6 +79,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="HOME" id="LKa-ZJ-U7p">
                         <barButtonItem key="rightBarButtonItem" image="icons8-qr-code-50" style="plain" id="ms4-OI-NvO">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-18" maxY="-9"/>
                             <color key="tintColor" red="0.45237462109999999" green="0.3628167752" blue="0.53371923580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="Rd0-Ev-X2J" kind="presentation" id="hgi-0e-UFw"/>
