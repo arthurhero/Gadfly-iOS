@@ -30,10 +30,10 @@ class SubmittedViewController: UIViewController {
         QRImageView.image = qrcodeImage
 
         QRImageView.isUserInteractionEnabled = true
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(SubmittedViewController.longPressed(sender:)))
-        longPressRecognizer.minimumPressDuration = 0.2
+        
+        let tapRec = UITapGestureRecognizer(target: self, action: #selector(SubmittedViewController.tapped(sender:)))
 
-        QRImageView.addGestureRecognizer(longPressRecognizer)
+        QRImageView.addGestureRecognizer(tapRec)
         
         ticketLabel.isUserInteractionEnabled = true
         let longPressRecognizer2 = UILongPressGestureRecognizer(target: self, action: #selector(SubmittedViewController.longPressed2(sender:)))
@@ -43,8 +43,7 @@ class SubmittedViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func longPressed(sender: UILongPressGestureRecognizer) {
-        sender.isEnabled = false
+    func tapped(sender: UITapGestureRecognizer) {
         UIImageWriteToSavedPhotosAlbum(QRImageView.image!, self, #selector(SubmittedViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
     }
     
