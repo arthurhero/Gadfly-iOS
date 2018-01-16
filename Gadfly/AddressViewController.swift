@@ -40,7 +40,8 @@ class AddressViewController: UIViewController, UISearchBarDelegate, LocateOnTheM
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        self.googleMapsView = GMSMapView(frame: self.mapContainer.frame)
+        let camera = GMSCameraPosition.camera(withLatitude: 41.7491, longitude: -92.7201, zoom: 5)
+        self.googleMapsView = GMSMapView.map(withFrame: self.mapContainer.frame, camera: camera)
         self.view.addSubview(self.googleMapsView)
         
         self.searchResultController = SearchResultsController()
@@ -70,7 +71,7 @@ class AddressViewController: UIViewController, UISearchBarDelegate, LocateOnTheM
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let filter = GMSAutocompleteFilter()
-        filter.type = .establishment
+        filter.type = .address
         filter.country = "US"
 
         let placeClient = GMSPlacesClient()
