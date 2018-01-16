@@ -86,7 +86,6 @@ class AddressViewController: UIViewController, UISearchBarDelegate, LocateOnTheM
                     self.resultsArray.append(result.attributedFullText.string)
                 }
             }
-            
             self.searchResultController.reloadDataWithArray(self.resultsArray)
         }
     }
