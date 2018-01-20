@@ -14,6 +14,7 @@ class SubmittedViewController: UIViewController {
     
     var ID : String = ""
     var ticket : String = ""
+    var descrip: String = ""
     var qrcodeImage : UIImage!
     
     @IBOutlet weak var QRImageView: UIImageView!
@@ -45,7 +46,7 @@ class SubmittedViewController: UIViewController {
     }
     
     func tapped(sender: UITapGestureRecognizer) {
-        let image = edit(image: QRImageView.image!, ID: self.ID)
+        let image = edit(image: QRImageView.image!, ID: self.ID, description: self.descrip)
         UIImageWriteToSavedPhotosAlbum(image!, self, #selector(SubmittedViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
     }
     
@@ -75,30 +76,102 @@ class SubmittedViewController: UIViewController {
         }
     }
     
-    func edit(image : UIImage!, ID : String) -> UIImage! {
-        let newSize = CGSize(width: 140, height: 160)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+    func edit(image : UIImage!, ID : String, description : String) -> UIImage! {
         
-        image.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: 140, height: 140)))
-        
-        let textFontAttributes = [
-            NSFontAttributeName: UIFont(name: "Copperplate", size: 11)!,
-            NSForegroundColorAttributeName: UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1),
-            ]
-        
-        let text : NSString = "Gadfly Call Script " + ID as NSString
-        
-        text.draw(in: CGRect(origin: CGPoint(x: 3, y: 140) , size: CGSize(width: 140, height: 20)), withAttributes: textFontAttributes)
-        
-        let result = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return result
+        if (description == "") {
+            let newSize = CGSize(width: 140, height: 160)
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+            
+            image.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: 140, height: 140)))
+            
+            let textFontAttributes = [
+                NSFontAttributeName: UIFont(name: "Copperplate", size: 10)!,
+                NSForegroundColorAttributeName: UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1),
+                ]
+            
+            let text : NSString = "Gadfly Call Script " + ID as NSString
+            
+            text.draw(in: CGRect(origin: CGPoint(x: 3, y: 140) , size: CGSize(width: 140, height: 20)), withAttributes: textFontAttributes)
+            
+            let result = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return result
+        } else if (description.count <= 25){
+            let newSize = CGSize(width: 140, height: 170)
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+            
+            image.draw(in: CGRect(origin: CGPoint(x : 0,y : 10), size: CGSize(width: 140, height: 140)))
+            
+            let textFontAttributes = [
+                NSFontAttributeName: UIFont(name: "Copperplate", size: 10)!,
+                NSForegroundColorAttributeName: UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1),
+                ]
+            
+            let text : NSString = "Gadfly Call Script " + ID as NSString
+            
+            description.draw(in: CGRect(origin: CGPoint(x: 3, y: 1) , size: CGSize(width: 140, height: 9)), withAttributes: textFontAttributes)
+            
+            text.draw(in: CGRect(origin: CGPoint(x: 3, y: 150) , size: CGSize(width: 140, height: 20)), withAttributes: textFontAttributes)
+            
+            let result = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return result
+        } else {
+            let newSize = CGSize(width: 140, height: 180)
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+            
+            image.draw(in: CGRect(origin: CGPoint(x : 0,y : 20), size: CGSize(width: 140, height: 140)))
+            
+            let textFontAttributes = [
+                NSFontAttributeName: UIFont(name: "Copperplate", size: 10)!,
+                NSForegroundColorAttributeName: UIColor(red: CGFloat(115/255.0), green: CGFloat(93/255.0), blue: CGFloat(136/255.0), alpha: 1),
+                ]
+            
+            let text : NSString = "Gadfly Call Script " + ID as NSString
+            
+            text.draw(in: CGRect(origin: CGPoint(x: 3, y: 160) , size: CGSize(width: 140, height: 20)), withAttributes: textFontAttributes)
+
+            let index = description.index(description.startIndex, offsetBy: 25)
+            
+            if (description[index] == " " || description[description.index(index, offsetBy: -1)] == " ") {
+                let substring1 = description.substring(to: index)
+                substring1.draw(in: CGRect(origin: CGPoint(x: 3, y: 1) , size: CGSize(width: 140, height: 9)), withAttributes: textFontAttributes)
+
+                let substring2 = description.substring(from: index)
+                
+                if (substring2.count > 25) {
+                    let index2 = substring2.index(substring2.startIndex, offsetBy: 22)
+                    let substring3 = substring2.substring(to: index2) + "..."
+                    substring3.draw(in: CGRect(origin: CGPoint(x: 3, y: 11) , size: CGSize(width: 140, height: 9)), withAttributes: textFontAttributes)
+                } else {
+                    substring2.draw(in: CGRect(origin: CGPoint(x: 3, y: 11) , size: CGSize(width: 140, height: 9)), withAttributes: textFontAttributes)
+                }
+            } else {
+                let substring1 = description.substring(to: index) + "-"
+                substring1.draw(in: CGRect(origin: CGPoint(x: 3, y: 1) , size: CGSize(width: 140, height: 9)), withAttributes: textFontAttributes)
+                
+                let substring2 = description.substring(from: index)
+                if (substring2.count > 25) {
+                    let index2 = substring2.index(substring2.startIndex, offsetBy: 22)
+                    let substring3 = substring2.substring(to: index2) + "..."
+                    substring3.draw(in: CGRect(origin: CGPoint(x: 3, y: 11) , size: CGSize(width: 140, height: 9)), withAttributes: textFontAttributes)
+                } else {
+                    substring2.draw(in: CGRect(origin: CGPoint(x: 3, y: 11) , size: CGSize(width: 140, height: 9)), withAttributes: textFontAttributes)
+                }
+            }
+            
+            let result = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return result
+        }
     }
     
     @IBAction func facebookButtonTapped(_ sender: Any) {
         if (qrcodeImage != nil) {
-            let image = edit(image: qrcodeImage!, ID: self.ID)
+            let image = edit(image: qrcodeImage!, ID: self.ID, description: self.descrip)
             let photo = Photo(image: image!, userGenerated: true)
             let content = PhotoShareContent(photos: [photo])
             
@@ -116,7 +189,7 @@ class SubmittedViewController: UIViewController {
     
     @IBAction func twitterButtonTapped(_ sender: Any) {
         if (qrcodeImage != nil) {
-            let image = edit(image: qrcodeImage!, ID: self.ID)
+            let image = edit(image: qrcodeImage!, ID: self.ID, description: self.descrip)
             let composer = TWTRComposer()
             
             composer.setText("I've composed a Gadfly Call Script!")

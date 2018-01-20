@@ -8,6 +8,18 @@
 
 import UIKit
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 class HomeViewController: UIViewController {
     
     var readyForRep : Bool = false
@@ -53,6 +65,12 @@ class HomeViewController: UIViewController {
         
         if readyForRep {
             enterLoadingMode()
+            if GFUser.getAddress() == nil {
+                print("nil!!!!!!")
+                self.enterNormalMode()
+                return
+            }
+            
             let address = GFUser.getAddress()
             
             GFPoli.fetch(withAddress: address, completionHandler: { (result : [Any]?) in

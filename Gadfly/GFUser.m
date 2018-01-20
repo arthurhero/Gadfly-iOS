@@ -11,8 +11,12 @@
 @implementation GFUser
 
 + (void)reset {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"polis"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"address"];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"polis"]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"polis"];
+    }
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"address"]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"address"];
+    }
 }
 
 
@@ -21,7 +25,10 @@
 }
 
 + (NSString *)getAddress {
-    return [[NSUserDefaults standardUserDefaults] stringForKey:@"address"];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"address"]) {
+        return [[NSUserDefaults standardUserDefaults] stringForKey:@"address"];
+    }
+    return nil;
 }
 
 + (void)cachePolis:(NSArray *)polis {
@@ -77,7 +84,9 @@
 }
 
 + (void)removeAllScripts {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"scripts"];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"scripts"]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"scripts"];
+    }
 }
 
 @end

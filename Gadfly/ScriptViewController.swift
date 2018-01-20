@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
@@ -22,6 +22,7 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     var ticket : String = ""
     var ID : String = ""
+    var descrip: String = ""
     var qrcodeImage : UIImage!
     
     func generateQRImage(with string : String) -> UIImage!{
@@ -47,6 +48,10 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        titleTextField.delegate = self
         
         contentTextView.layer.borderWidth = 1.0
         contentTextView.layer.borderColor = UIColor.lightGray.cgColor
@@ -90,6 +95,7 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     DispatchQueue.main.sync {
                         self.ticket = result?["ticket"] as! String
                         self.ID = String(format: "%@", result?["id"] as! NSNumber)
+                        self.descrip = self.titleTextField.text!
                         self.qrcodeImage = self.generateQRImage(with: "http://gadfly.mobi/services/v1/script?id=" + self.ID)
                         self.performSegue(withIdentifier: "showSubmittedView", sender: self)
                     }
@@ -147,6 +153,14 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    // MARK: - Text Field Delegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.count + string.count - range.length
+        return newLength <= 100
+    }
+
     
     // MARK: - Navigation
 
@@ -156,6 +170,7 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             let destinationVC = segue.destination as! SubmittedViewController
             destinationVC.ID = self.ID
             destinationVC.ticket = self.ticket
+            destinationVC.descrip = self.descrip
             destinationVC.qrcodeImage = self.qrcodeImage
         }
     }
