@@ -75,7 +75,7 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             
             if metadataObj.stringValue != nil {
                 let comp = metadataObj.stringValue.components(separatedBy: "=")
-                if (comp.first == "http://gadfly.mobi/services/v1/script?id") {
+                if (comp.first == "http://gadfly.mobi/services/v1/script?id" || comp.first == "gadfly.mobi/services/v1/script?id" ) {
                     let ID = comp.last
                     GFScript.cacheID(ID)
                     performSegue(withIdentifier: "unwindToHome2", sender: self)
