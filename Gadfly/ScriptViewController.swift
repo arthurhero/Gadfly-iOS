@@ -96,7 +96,7 @@ class ScriptViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         self.ticket = result?["ticket"] as! String
                         self.ID = String(format: "%@", result?["id"] as! NSNumber)
                         self.descrip = self.titleTextField.text!
-                        self.qrcodeImage = self.generateQRImage(with: "gadfly.mobi/services/v1/script?id=" + self.ID)
+                        self.qrcodeImage = self.generateQRImage(with: "http://gadfly.mobi/services/v1/script?id=" + self.ID)
                         self.performSegue(withIdentifier: "showSubmittedView", sender: self)
                     }
                 }
