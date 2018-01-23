@@ -29,6 +29,8 @@ class DeleteViewController: UIViewController {
         super.viewDidLoad()
 
         enterNormalMode()
+        self.hideKeyboardWhenTappedAround()
+
         // Do any additional setup after loading the view.
     }
 
